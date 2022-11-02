@@ -1,15 +1,13 @@
-import Image from 'next/image'
 import { useRef } from "react";
 import { useEffect } from "react";
 import { GetServerSideProps } from 'next';
-import { paraseCookie } from '../lib/utils/cookie';
-import Form from '../components/Auth/Form';
 import useInitAuth from '../hooks/useInitAuth';
 import useLogout from '../hooks/useLogout';
 import LeftSideBar from '../components/LeftSideBar';
 import BlogList from '../components/BlogList';
 import RightSideBar from '../components/RightSideBar';
 import Footer from '../components/Footer';
+import Header from '../components/Mobile/Header'
 function HomePage() {
   const darkMode = useRef(false);
   const {initAuth} = useInitAuth()
@@ -22,13 +20,16 @@ function HomePage() {
   //   logout()
   // }
   return (
-    <div className='flex  h-full bg-white p-[1px]'>
-    <section className='w-1/5 hidden md:block'>
+    <div className='flex flex-col h-full bg-white'>
+   <Header/>
+   <div className="flex h-full">
+   <section className='w-1/5 hidden md:block'>
       <LeftSideBar/>
     </section>
     <section className='w-4/5 flex-grow overflow-auto scrollbar-none'>
       <div className='flex w-full flex-row'>
       <section className='flex-grow-4'>
+      
       <BlogList/>
       </section>
       <section className='flex-grow-1 hidden md:block'>
@@ -37,6 +38,8 @@ function HomePage() {
       </div>
       <Footer/>
     </section>
+    </div> 
+
     </div>
 
   )

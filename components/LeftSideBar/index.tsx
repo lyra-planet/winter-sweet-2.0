@@ -11,7 +11,7 @@ import {
 const LeftSideBar = () => {
   return (
     <div className="flex flex-col space-y-8 border-r h-full max-w-[30rem]
-    px-4 
+    px-4 animate-sildelefttoright
     ">
     <section>
     <div>
@@ -39,9 +39,9 @@ const LeftSideBar = () => {
         duration-300
     ">互动</p>
     <ul>
-      <Item link="/"><ChatBubbleLeftEllipsisIcon className="h-5 mr-2"/>留言板</Item>
-      <Item  link="/"><HeartIcon className="h-5 mr-2"/>我的好友</Item>
-      <Item link="/">< TruckIcon className="h-5 mr-2"/>友链</Item>
+      <Item link="/"><ChatBubbleLeftEllipsisIcon className="h-5 mr-2"/>留言板 Message</Item>
+      <Item  link="/"><HeartIcon className="h-5 mr-2"/>我的好友 Friend</Item>
+      <Item link="/">< TruckIcon className="h-5 mr-2"/>友链 Traveling</Item>
     </ul>
     </section>
 

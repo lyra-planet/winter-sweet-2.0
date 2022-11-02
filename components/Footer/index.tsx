@@ -10,7 +10,7 @@ const index = () => {
         </section>
         <section className='lg:w-1/2 flex flex-row justify-between py-8'>
           <section>
-            <h1 className='font-bold text-sm'>订阅</h1>
+            <h1 className='font-bold text-sm'>交流&探讨</h1>
           <ul>
             <Item link={'/'}><Fun className="w-4 mr-1"/>小星球</Item>
             <Item link={'/'}><Terminal className="w-4 mr-1"/> 掘金</Item>
@@ -18,7 +18,7 @@ const index = () => {
           </ul>
           </section>
           <section>
-          <h1 className='font-bold text-sm'>关注</h1>
+          <h1 className='font-bold text-sm'>联系&关注</h1>
             <ul>
             <Item link={'/'}><Email className="w-4 mr-1"/>E-mail</Item>
             <Item link={'/'}><Telegram className="w-4 mr-1"/>Telegram</Item>

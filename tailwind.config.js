@@ -11,6 +11,22 @@ module.exports = {
     },
     backgroundSize:{
       'radial':["calc(1px/0.25) calc(1px*4)"]
+    },
+    extend:{
+      animation:{
+        sildelefttoright:'sildelefttoright .6s ease-out',
+        silderighttoleft:'silderighttoleft .6s ease-out'
+      },
+      keyframes:{
+        silderighttoleft:{
+          '0%':{ transform:'translateX(100%)',opacity:'0'},
+          '100%':{transform:'translateX(0%)',opacity:'1'}
+        },
+        sildelefttoright:{
+          '0%':{ transform:'translateX(-100%)',opacity:'0'},
+          '100%':{transform:'translateX(0%)',opacity:'1'}
+        }
+      }
     }
   },
   content: [

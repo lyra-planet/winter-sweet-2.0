@@ -6,6 +6,7 @@ import Game from './game'
 import Netease from './netease'
 import Terminal from './terminal'
 import Fun from './fun'
+import ArrowRight from './arrowRight'
 export {
     Github,
     QQ,
@@ -15,4 +16,5 @@ export {
     Netease,
     Terminal,
     Fun,
+    ArrowRight,
 }

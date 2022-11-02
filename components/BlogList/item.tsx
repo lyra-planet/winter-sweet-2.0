@@ -1,23 +1,35 @@
 import { HeartIcon,ArrowSmallRightIcon } from "@heroicons/react/24/solid"
 import Link from 'next/link';
+import { ArrowRight } from "../../assets";
 const Item = () => {
   return (
     <section className='
     group/box
     space-y-4 border-b py-4
     px-5
+    flex
+    flex-col justify-around
     text-sm
     first:text-base
     xl:px-6 
-    xl:px- xl:border-r 
+    xl:border-r 
     xl:text-sm
-    first:xl:col-span-2'>
+    first:space-y-10
+    first:xl:col-span-2
+    first:2xl:row-span-2
+    first:2xl:col-span-1
+    first:2xl:px-8'>
+        <div className="space-y-4 2xl:group-[:first-child]/box:space-y-10">
         <hgroup>
             <h3 className='flex items-center text-neutral-400 font-serif cursor-default'><p className="text-sm">No</p><p className="text-lg ml-[0.1rem]">159</p></h3>
-            <h1 className='cursor-pointer text-3xl font-semibold hover:text-red-500 transition duration-300'>拉着三位「毕业生」，我们组了一个「寒气录音室」</h1>
+            <h1 className='
+            cursor-pointer text-3xl font-semibold hover:text-red-500 
+            
+            2xl:group-[:first-child]/box:text-4xl
+            transition duration-300'>拉着三位「毕业生」，我们组了一个「寒气录音室」</h1>
         </hgroup>
         <div>
-            <div className=" text-neutral-500">
+            <div className=" text-neutral-500 2xl:group-[:first-child]/box:text-xl group-[:first-child]/box:text-neutral-600">
             <span className="">
             在很多中国城市，2022 年的这个深秋，都有着让人体感舒适的天气，但在心理上却很难说是个惬意的季节，经济的不景气、工作和生活的压力让人有点儿喘不过气。
                 本来尝试想在三个股东群里征集「今年被裁员过」的朋友来做一个特辑，不曾想第一个群里刚发完就征集满了，但我们今天显然不想「制造焦虑」，只想通过这次随性而愉快的群聊给这个深秋和即将到来的冬天给大家带来一些慰籍~  
@@ -41,11 +53,13 @@ const Item = () => {
             before:duration-300
             ">
             <p className="relative z-10 font-semibold"> 35 条评论
-            <ArrowSmallRightIcon className="inline w-0 relative z-10 text-black group-hover/comment:text-white group-hover:w-3  transition-all duration-300"/>
-             </p>
+            <ArrowRight className="inline w-0 relative z-10 text-black group-hover/comment:text-white group-hover:w-4  transition-all duration-300"/>
+            </p>
         </div> 
 
             </div>
+        </div>
+
         </div>
 
         <div className="flex flex-row flex-nowrap justify-between

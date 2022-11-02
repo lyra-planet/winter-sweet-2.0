@@ -17,13 +17,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             name="description"
             content="Clone and deploy your own Next.js portfolio in minutes."
           />
-          <title>My awesome blog</title>
+          <title>Lyra.Planet</title>
         </Head>
         <main className="h-screen w-screen overflow-hidden font-lyra
+          p-0
         border-red-500 
-            border-[0.5rem]
-            sm:border-[0.8rem]
-            md:border-[0.4rem] ">
+          border-[8px]
+          sm:border-[10px]
+          md:border-[0.4rem] ">
         <Component {...pageProps} />
         </main>
     </Auth0Provider>
