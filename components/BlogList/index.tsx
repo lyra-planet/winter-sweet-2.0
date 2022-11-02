@@ -13,7 +13,7 @@ const index = () => {
         <Item/>
         <Item/>
       </ul>
-      <div className='py-8'>
+      <div className='pt-8'>
         <p className=' cursor-pointer bg-black text-white px-3 pt-1 py-2 hover:bg-red-500 hover:scale-105 transition duration-300'>
           往期存档
           <ArrowSmallRightIcon className="inline ml-1 w-4 text-white"/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Ad from './Ad'
+import Ad from './ad'
 import Item from './item'
 
 const index = () => {

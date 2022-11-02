@@ -15,7 +15,7 @@ const Item = () => {
             虽然官网上的描述是「搜索工具」，但上搭配时间轴已经强大到像一个「时间回朔」工具了，官方演示里可以图形化地展示过去一段时间内的电脑操作，从各种软件中截取文字甚至是视频会议里的语音转写，实际完成度即使只有五六成应该也是个 killer app 了~
         </p> 
          <div className="flex items-center justify-start">
-            <p className="text-red-500 text-xs  font-bold mr-1">12小时前</p>
+            <p className="text-red-500 text-xs  font-bold mr-2">12小时前</p>
             <div className="text-neutral-500 text-xs flex space-x-[0.1rem] 
             hover:bg-red-500 hover:text-white transition duration-300">
                 <p>1</p>

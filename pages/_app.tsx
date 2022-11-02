@@ -23,9 +23,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         border-red-500 
             border-[0.5rem]
             sm:border-[0.8rem]
-            md:border-[0.6rem] 
-            lg:border-[0.4rem] ">
-          <Component {...pageProps} />
+            md:border-[0.4rem] ">
+        <Component {...pageProps} />
         </main>
     </Auth0Provider>
     </StoreProvider>
