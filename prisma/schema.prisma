@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+
+model Author {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  email        String  @unique 
+  name         String  @unique 
+  password     String
+  profileImage String
+
+  createdAt DateTime @default(now())
+
+  // Refresh token
+  refreshToken RefreshToken[]
+
+  // Post
+  posts Post[]
+}
+
+//refreshToken
+model RefreshToken {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  token String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String @db.ObjectId
+  author  Author  @relation(fields: [authorId], references: [id])
+}
+
+//post
+model Post {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  text String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author   Author  @relation(fields: [authorId], references: [id])
+  authorId String @db.ObjectId
+
+  postData String
+
+  comments Comment[] @relation("comments")
+}
+
+// comment to post 
+model Comment {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  text String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userName String 
+  userPicture String
+  userSub String
+  userEmail String
+
+  replyTo  Post?  @relation("comments", fields: [replyToId], references: [id])
+  replyToId String? @db.ObjectId
+}
