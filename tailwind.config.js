@@ -14,8 +14,8 @@ module.exports = {
     },
     extend:{
       animation:{
-        sildelefttoright:'sildelefttoright .6s ease-out',
-        silderighttoleft:'silderighttoleft .6s ease-out'
+        sildelefttoright:'sildelefttoright .3s ease-out',
+        silderighttoleft:'silderighttoleft .3s ease-out'
       },
       keyframes:{
         silderighttoleft:{
@@ -30,8 +30,9 @@ module.exports = {
     }
   },
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   variants: {
     extend: {

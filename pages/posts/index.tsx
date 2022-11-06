@@ -7,7 +7,7 @@ import { getAllPosts } from '../../lib/post/getPost'
 export default function NotePage({
   allPosts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-
+  console.log(allPosts)
   return (
     <div>
       {allPosts.length ? (
@@ -30,9 +30,9 @@ export default function NotePage({
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts(['slug', 'title', 'excerpt', 'date'])
-
+  const allPosts = await getAllPosts(['slug', 'title', 'excerpt', 'authorId',"tags"])
+  console.log(allPosts)
   return {
-    props: { allPosts },
+    props: {},
   }
 }

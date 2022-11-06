@@ -6,18 +6,22 @@ export type User = {
 }
 
 export type Comment = {
-  id: string
-  created_at: number
-  url: string
+  id?:string,
+  replyTo?: Post
+  replyToId?: string
   text: string
-  user: User
+  userName: string,
+  userPicture: string,
+  userSub:string,
+  userEmail: string,
 }
+
 export type Author = {
   id?           :string
   email?        :string
   name?         :string
   profileImage? :string
-}  
+}
 export type AccessToken ={
   data?:string
 }

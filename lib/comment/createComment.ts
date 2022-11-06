@@ -1,27 +1,20 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import type { Comment } from '../../interfaces'
-import redis from '../redis'
-import { nanoid } from 'nanoid'
-import getUser from './getCommentUser'
 
+import getUser from './getCommentUser'
+import prisma from '../prisma'
 export default async function createComments(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { url, text } = req.body
+  const { replyToId, text } = req.body
   const { authorization } = req.headers
 
-  if (!url || !text || !authorization) {
+  if (!replyToId || !text || !authorization) {
     return res.status(400).json({ message: 'Missing parameter.' })
   }
 
-  if (!redis) {
-    return res
-      .status(400)
-      .json({ message: 'Failed to connect to redis client.' })
-  }
-
-  try {
+  // try {
     // verify user token
     const user = await getUser(authorization)
     if (!user) return res.status(400).json({ message: 'Need authorization.' })
@@ -29,18 +22,21 @@ export default async function createComments(
     const { name, picture, sub, email } = user
 
     const comment: Comment = {
-      id: nanoid(),
-      created_at: Date.now(),
-      url,
+      replyToId,
       text,
-      user: { name, picture, sub, email },
+      userName: name,
+      userPicture: picture,
+      userSub: sub,
+      userEmail: email,
     }
 
     // write data
-    await redis.lpush(url, JSON.stringify(comment))
-
+    await prisma.comment.create({
+      data:comment
+    })
+    console.log(user)
     return res.status(200).json(comment)
-  } catch (_) {
-    return res.status(400).json({ message: 'Unexpected error occurred.' })
-  }
+  // } catch (_) {
+  //   return res.status(400).json({ message: 'Unexpected error occurred.' })
+  // }
 }

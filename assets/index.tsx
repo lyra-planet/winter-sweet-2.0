@@ -1,12 +1,14 @@
-import Github from './github'
-import QQ from './qq'
-import Telegram from './telegram'
-import Email from './email'
-import Game from './game'
-import Netease from './netease'
-import Terminal from './terminal'
-import Fun from './fun'
-import ArrowRight from './arrowRight'
+import Github from './icon/github'
+import QQ from './icon/qq'
+import Telegram from './icon/telegram'
+import Email from './icon/email'
+import Game from './icon/game'
+import Netease from './icon/netease'
+import Terminal from './icon/terminal'
+import Fun from './icon/fun'
+import ArrowRight from './icon/arrowRight'
+import Play from './icon/play'
+import Toc from './icon/toc'
 export {
     Github,
     QQ,
@@ -17,4 +19,6 @@ export {
     Terminal,
     Fun,
     ArrowRight,
+    Play,
+    Toc
 }

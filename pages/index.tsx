@@ -8,7 +8,8 @@ import BlogList from '../components/BlogList';
 import RightSideBar from '../components/RightSideBar';
 import Footer from '../components/Footer';
 import Header from '../components/Mobile/Header'
-function HomePage() {
+import { getAllPosts } from '../lib/post/getPost';
+function HomePage({posts}) {
   const darkMode = useRef(false);
   const {initAuth} = useInitAuth()
   const logout = useLogout()
@@ -23,22 +24,21 @@ function HomePage() {
     <div className='flex flex-col h-full bg-white'>
    <Header/>
    <div className="flex h-full">
-   <section className='w-1/5 hidden md:block'>
+   <section className='w-1/5 border-r hidden md:block'>
       <LeftSideBar/>
     </section>
     <section className='w-4/5 flex-grow overflow-auto scrollbar-none'>
       <div className='flex w-full flex-row'>
-      <section className='flex-grow-4'>
-      
-      <BlogList/>
+      <section className='md:w-2/3 lg:w-3/4'>
+      <BlogList posts={JSON.parse(posts)}/>
       </section>
-      <section className='flex-grow-1 hidden md:block'>
+      <section className='w-1/3 lg:w-1/4 hidden md:block border-l'>
       <RightSideBar/>
       </section>
       </div>
       <Footer/>
     </section>
-    </div> 
+    </div>
 
     </div>
 
@@ -48,7 +48,9 @@ function HomePage() {
 export default HomePage
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-
-  return {props:{a:1}}
+  const posts = await getAllPosts(['slug', 'title', 'excerpt', 'authorId'])
+  return {props:{
+    posts:JSON.stringify(posts)
+  }}
 }
 
