@@ -1,5 +1,5 @@
 import React from "react";
-import { formatDate } from "../../../lib/dateRelative";
+import { formatDate } from "../../../../lib/dateRelative";
 
 const index = ({ post }) => {
   console.log(post);
@@ -22,12 +22,17 @@ const index = ({ post }) => {
       </hgroup>
       <div className="w-full pb-5">
         <div className="relative text-lg text-neutral-500 2xl:text-xl">
-          <div className="prose" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+          <div
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: post.excerpt }}
+          />
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="bg-black p-1 text-white font-serif border-b-2 border-red-500">{formatDate(post.createAt)}</div>
+        <div className="bg-black p-1 text-white font-serif border-b-2 border-red-500">
+          {formatDate(post.createAt)}
         </div>
+      </div>
     </div>
   );
 };

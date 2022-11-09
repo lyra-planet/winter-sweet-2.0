@@ -1,38 +1,46 @@
-import type { InferGetStaticPropsType } from 'next'
-import Link from 'next/link'
-import distanceToNow from '../../lib/dateRelative'
-import { getAllPosts } from '../../lib/post/getPost'
-
+import type { InferGetStaticPropsType } from "next";
+import Link from "next/link";
+import Footer from "../../components/Footer";
+import LeftSideBar from "../../components/LeftSideBar";
+import Header from "../../components/Mobile/Header";
+import Main from "../../components/Post/Index/Main";
+import { distanceToNow } from "../../lib/dateRelative";
+import { getAllPosts } from "../../lib/post/getPost";
 
 export default function NotePage({
-  allPosts,
+  _posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(allPosts)
+  const posts = JSON.parse(_posts);
   return (
-    <div>
-      {allPosts.length ? (
-        allPosts.map((post) => (
-          <article key={post.slug} className="mb-10">
-            <Link as={`/posts/${post.slug}`} href="/posts/[slug]" >
-              <p className="text-lg leading-6 font-bold">{post.title}</p>
-            </Link>
-            <p>{post.excerpt}</p>
-            <div className="text-gray-400">
-              <time>{distanceToNow(new Date(post.date))}</time>
-            </div>
-          </article>
-        ))
-      ) : (
-        <p>No blog posted yet :/</p>
-      )}
+    <div className="flex flex-col h-full bg-white">
+      <Header />
+      <div className="flex h-full">
+        <section className="w-1/5 border-r hidden md:block">
+          <LeftSideBar />
+        </section>
+        <section className="w-4/5 flex-grow overflow-auto justify-between scrollbar-none">
+          <div className="flex w-full min-h-full flex-row">
+            <Main _posts={posts}/>
+          </div>
+          <Footer />
+        </section>
+      </div>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllPosts(['slug', 'title', 'excerpt', 'authorId',"tags"])
-  console.log(allPosts)
+  const posts = await getAllPosts([
+    "slug",
+    "title",
+    "excerpt",
+    "authorId",
+    "tags",
+    "authorName",
+  ]);
   return {
-    props: {},
-  }
+    props: {
+      _posts: JSON.stringify(posts),
+    },
+  };
 }

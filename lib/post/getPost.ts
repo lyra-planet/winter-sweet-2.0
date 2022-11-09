@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import prisma from "../prisma";
 import async from "../../pages/api/post/getList";
 import markdownToHtml from "./markdownToHtml";
+import { getAuthorById } from '../auth/author';
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -16,7 +17,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  console.log(fileContents);
   const { data, content } = matter(fileContents);
 
   const items: Post = {};
@@ -47,7 +47,7 @@ export function getAllPost(fields: string[] = []) {
   return posts;
 }
 
-export const getAllPostId = () => {
+export const getLastFivePostId = () => {
   return prisma.post.findMany({
     select: {
       id: true,
@@ -56,7 +56,14 @@ export const getAllPostId = () => {
     orderBy: { createdAt: "desc" },
   });
 };
-
+export const getAllPostId = () => {
+  return prisma.post.findMany({
+    select: {
+      id: true,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+};
 export const getPost = (id: string, fields: string[] = []) => {
   return prisma.post.findUnique({
     where: {
@@ -74,14 +81,26 @@ export const getPost = (id: string, fields: string[] = []) => {
   });
 };
 
-export const getAllPosts = async (fields: string[] = []) => {
-  const postsId = await getAllPostId();
-  console.log(postsId);
+export const getLastFivePosts = async (fields: string[] = []) => {
+  const postsId = await getLastFivePostId();
   const posts = await Promise.all(
     postsId.map(async (post) => await getPost(post.id, fields))
   );
   return await Promise.all(posts.map(async (post) => ({
     ...post,
-    excerpt: await markdownToHtml(post.excerpt || ""),
+    authorName: await getAuthorById(post.authorId),
+    excerpt: await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))) ,
+  })))
+};
+
+export const getAllPosts = async (fields: string[] = []) => {
+  const postsId = await getAllPostId();
+  const posts = await Promise.all(
+    postsId.map(async (post) => await getPost(post.id, fields))
+  );
+  return await Promise.all(posts.map(async (post) => ({
+    ...post,
+    authorName: await getAuthorById(post.authorId),
+    excerpt: await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))) ,
   })))
 };

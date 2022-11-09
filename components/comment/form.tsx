@@ -41,7 +41,7 @@ export default function CommentForm({
         ) : (
           <button
             type="button"
-            className="py-2 px-4  bg-red-500 text-white disabled:opacity-40 hover:bg-blue-700"
+            className="py-2 px-4  bg-red-500 text-white disabled:opacity-40 hover:scale-105 transition duration-150"
             onClick={() => loginWithPopup()}
           >
            登录

@@ -41,15 +41,22 @@ model RefreshToken {
 //post
 model Post {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  author   Author  @relation(fields: [authorId], references: [id])
-  authorId String @db.ObjectId
+  author   Author?  @relation(fields: [authorId], references: [id])
+  authorId String? @db.ObjectId
   postData String
+  count Int
   tags String[]
-  excerpt String
+  excerpt String[]
   title String
   comments Comment[] @relation("comments")
+}
+model PostCount{
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  count Int
+  createdAt DateTime @default(now())
 }
 
 // comment to post

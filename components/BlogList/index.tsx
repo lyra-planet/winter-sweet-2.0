@@ -1,4 +1,5 @@
 import { ArrowSmallRightIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import React from 'react'
 import { ArrowRight } from '../../assets'
 import Item from './item'
@@ -16,12 +17,14 @@ const index = ({posts}) => {
         posts.map(post=><Item key={post.id} post={post}/>)
       }
       </ul>
+      <Link href={`/posts`}>
       <div className='pt-8'>
         <p className=' cursor-pointer bg-black text-white px-3 pt-1 py-2 hover:bg-red-500 hover:scale-105 transition duration-300'>
           往期存档
           <ArrowRight className="inline ml-1 w-4 text-white"/>
         </p>
       </div>
+      </Link>
     </div>
   )
 }

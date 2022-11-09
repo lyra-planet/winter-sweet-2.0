@@ -3,7 +3,7 @@ import { getAuthorById } from "../../../lib/auth/author";
 import { getAllPost, getAllPosts } from "../../../lib/post/getPost";
 import { getRefreshTokenByToken } from "../../../lib/token";
 import { paraseCookie } from "../../../lib/utils/cookie";
-import { createPost } from "../../../lib/post/createPost";
+import { createPost, deletePosts, incCount } from '../../../lib/post/createPost';
 import { decodeRefreshToken, generateTokens } from "../../../lib/utils/jwt";
 export default async function handler(
   req: NextApiRequest,
@@ -27,16 +27,19 @@ export default async function handler(
     const token: any = decodeRefreshToken(refreshToken);
     console.log(token);
     try {
+      await deletePosts()
       const author = await getAuthorById(token.authorId);
 
-      const posts = getAllPost(["slug", "title", "excerpt", "content"]);
-      console.log(posts);
-      posts.map(async ({ slug, title, excerpt, content }) => {
+      const posts = getAllPost(["tags","title", "excerpt", "content"]);
+      console.log(author);
+      console.log(posts)
+      posts.map(async ({ tags, title, excerpt, content }) => {
+        await incCount()
         await createPost({
           authorId: author.id,
           postData: content,
           title: title,
-          tags: slug.split(" "),
+          tags: tags,
           excerpt: excerpt,
         });
       });

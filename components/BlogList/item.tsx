@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Play } from "../../assets";
 import { formatDate } from "../../lib/dateRelative";
 const Item = ({ post }) => {
+  console.log(post)
   return (
     <section
       className="
@@ -24,9 +25,15 @@ const Item = ({ post }) => {
     >
       <div className="space-y-4 2xl:group-[:first-child]/box:space-y-10">
         <hgroup>
-          <h3 className="flex items-center text-neutral-400 font-serif cursor-default">
-            <p className="text-sm">ID</p>
-            <p className="text-lg ml-[0.1rem]">{post.id}</p>
+          <h3 className="flex items-center justify-between text-neutral-400 font-serif cursor-default">
+            <p>
+            <span className="text-sm">ID</span>
+            <span className="text-lg ml-[0.1rem]">{post.id}</span>
+            </p>
+            <p className=" text-neutral-400 translate-x-[-1rem] opacity-0 group-hover/box:opacity-100 group-hover/box:translate-x-0 transition duration-150">
+            <span className="text-sm">@</span>
+            <span className="text-sm">{post.authorName.name} 提交</span>
+            </p>
           </h3>
           <Link href={`/posts/${encodeURIComponent(post.id)}`}>
             <h1
@@ -50,28 +57,40 @@ const Item = ({ post }) => {
             <div className="inline">
               <span
                 className="prose"
-                dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                dangerouslySetInnerHTML={{ __html: post.excerpt?.[0] }}
               ></span>
 
+              <span
+                className="prose hidden group-[:first-child]/box:inline"
+                dangerouslySetInnerHTML={{ __html: post.excerpt?.[1] }}
+              ></span>
             </div>
           </div>
         </div>
       </div>
       <div
-        className="flex flex-row flex-nowrap justify-between
-        group-[:not(:first-child)]/box:grid group-[:not(:first-child)]/box:space-y-3
+        className="flex flex-col flex-nowrap justify-between space-y-3
         "
       >
         <ul className="flex items-center space-x-1 text-sm text-gray-400 font-serif">
-          <li>{formatDate(post.createdAt)}</li>
-          <li className=" bg-red-500 w-1 h-1" />
-          <li>1小时25分钟</li>
+          <li className=" whitespace-nowrap">{formatDate(post.createdAt)}</li>
+          <li className="inline md:group-[:not(:first-child)]/box:hidden lg:inline bg-red-500 w-1 h-1" />
+          <li className=" inline md:group-[:not(:first-child)]/box:hidden lg:inline">1小时25分钟</li>
           <li className=" bg-red-500 w-1 h-1" />
           <li className="flex flex-row">
+            [<ul className="flex flex-row space-x-1">
+            {
+              post.tags.map(tag=>(
+              <li>
             #
-            <p className="hover:text-red-500 transition duration-300 cursor-pointer">
-              <Link href={"/"}>FIGMA</Link>
-            </p>
+            <span className="hover:text-red-500 transition duration-300 cursor-pointer">
+              <Link href={"/"}>{tag}</Link>
+            </span>
+              </li>
+              ))
+            }
+            </ul>
+            ]
           </li>
           <li className=" bg-red-500 w-1 h-1" />
           <li>
@@ -97,7 +116,7 @@ const Item = ({ post }) => {
             transition-all duration-150
             "
               >
-                <span className="relative z-10 font-semibold">
+                <span className="relative z-10 font-semibold whitespace-nowrap">
                   35 条评论
                   <ArrowRight className="inline absolute w-3  m-0 scale-0 bottom-[0.1rem] z-10 text-white group-hover:scale-100  transition-all duration-150" />
                 </span>
@@ -127,13 +146,15 @@ const Item = ({ post }) => {
 
           <div
             className="
-        flex  group-[:not(:first-child)]/box:hidden
-        bg-red-500 text-white h-8 w-[8rem]  justify-center items-center cursor-pointer
+        inline-flex  group-[:not(:first-child)]/box:hidden
+        bg-red-500 text-white px-2 py-1  justify-center items-center cursor-pointer
+        md:text-sm
         hover:scale-105 transition duration-300 group/readmore"
           >
             <p className="mr-1">
               <Play className="w-5" />
             </p>
+
             <p
               className=" whitespace-nowrap
         "

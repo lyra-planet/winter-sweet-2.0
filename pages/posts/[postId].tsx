@@ -3,7 +3,7 @@ import markdownToHtml from "../../lib/post/markdownToHtml";
 import dynamic from "next/dynamic";
 import Header from "../../components/Mobile/Header";
 
-const Main = dynamic(() => import("../../components/Post/Main"), {
+const Main = dynamic(() => import("../../components/Post/Id/Main"), {
   ssr: false,
 });
 

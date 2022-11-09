@@ -9,7 +9,7 @@ export type Author = {
     name         :string
     password     :string
     profileImage :string
-}  
+}
 
   export type Comment = {
     id: string
@@ -18,14 +18,13 @@ export type Author = {
     text: string
     user: User
   }
-  
+
   export type Post = {
     slug?: string
     title?: string
     author?: string
     date?: Date
     content?: string
-    excerpt?: string
+    excerpt?: string[]
     [key: string]: any
   }
-  

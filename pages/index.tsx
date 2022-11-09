@@ -8,7 +8,7 @@ import BlogList from '../components/BlogList';
 import RightSideBar from '../components/RightSideBar';
 import Footer from '../components/Footer';
 import Header from '../components/Mobile/Header'
-import { getAllPosts } from '../lib/post/getPost';
+import { getLastFivePosts } from '../lib/post/getPost';
 function HomePage({posts}) {
   const darkMode = useRef(false);
   const {initAuth} = useInitAuth()
@@ -48,7 +48,7 @@ function HomePage({posts}) {
 export default HomePage
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const posts = await getAllPosts(['slug', 'title', 'excerpt', 'authorId'])
+  const posts = await getLastFivePosts(['slug', 'title', 'excerpt', 'authorId','tags'])
   return {props:{
     posts:JSON.stringify(posts)
   }}

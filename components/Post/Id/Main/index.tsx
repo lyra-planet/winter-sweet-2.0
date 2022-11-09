@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import Footer from "../../Footer";
+import Footer from "../../../Footer";
 import PostLeftSideBar from "../LeftSideBar";
-import LeftSideBar from "../../LeftSideBar";
+import LeftSideBar from "../../../LeftSideBar";
 import TocHelper from "toc-helper";
 import Header from "../Header";
-import Comment from "../../Comment";
-const index = ({post}) => {
+import Comment from "../../../Comment";
+const index = ({ post }) => {
   const contentRef = useRef(null);
   const tocRef = useRef(null);
 
@@ -21,13 +21,16 @@ const index = ({post}) => {
   }, [contentRef, tocRef]);
   return (
     <>
-      <section className="w-2/7 hidden md:block overflow-auto scrollbar-none">
+      <section className="w-1/4 hidden md:block overflow-auto scrollbar-none">
         <PostLeftSideBar>
+          <div
+            ref={tocRef}
+            className="bg-white h-full font-serif font-sm text-sm"
+          />
           <LeftSideBar />
-          <div ref={tocRef} className=" font-serif font-sm text-sm"/>
         </PostLeftSideBar>
       </section>
-      <section className="w-full md:w-5/7 flex flex-col overflow-auto scrollbar-none">
+      <section className="w-full md:w-3/4 flex flex-col overflow-auto scrollbar-none">
         <div className="flex flex-col xl:flex-row px-2 md:px-6 flex-grow md:space-x-6">
           {/* article */}
           <section className="space-y-10 w-full xl:w-3/5 flex items-center flex-col">
