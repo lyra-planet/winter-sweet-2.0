@@ -9,7 +9,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-    const 
 
     try {
       return res.status(200).send({ status: "succeed", data: {} });

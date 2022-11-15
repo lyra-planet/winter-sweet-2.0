@@ -6,7 +6,7 @@ export default function Comment({postId}) {
   const { text, setText, comments, onSubmit, onDelete } = useComments(postId)
 
   return (
-    <div className="w-full xl:sticky xl:top-0 py-10 lx:pt-20 xl:h-[70vh]">
+    <div className="w-full xl:sticky xl:mb-[10rem] xl:top-0 pt-10 lx:pt-20 xl:h-[80vh]">
       <div>
         评论
       </div>

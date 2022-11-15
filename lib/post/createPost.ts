@@ -1,13 +1,11 @@
 import prisma from '../prisma';
 export const createPost = async(post)=>{
     const count =  await getCount()
-
     const postData = {
         ...post,
         authorId:`${post.authorId}`,
         count:count
     }
-    console.log(postData)
     const result = await prisma.post.create({
         data:postData
     })
@@ -26,7 +24,6 @@ export const getCount = async ()=>{
         }
     )
     const {id,count} = countDB[0]
-
     return count
 }
 export const incCount = async ()=>{

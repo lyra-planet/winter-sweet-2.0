@@ -9,7 +9,7 @@ type CommentListProps = {
 export default function CommentList({ comments, onDelete }: CommentListProps) {
   const { user } = useAuth0()
   return (
-    <div className="space-y-4 my-5 overflow-auto h-full scrollbar-none border-b border-t">
+    <div className="space-y-4 my-5 max-h-full overflow-auto scrollbar-none border-b border-t">
       {comments &&
         comments.map((comment) => {
           const isAuthor = user && user.sub === comment.userSub

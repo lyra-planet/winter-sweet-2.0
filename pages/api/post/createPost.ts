@@ -27,9 +27,7 @@ export default async function handler(
     const token: any = decodeRefreshToken(refreshToken);
     console.log(token);
     try {
-      await deletePosts()
       const author = await getAuthorById(token.authorId);
-
       const posts = getAllPost(["tags","title", "excerpt", "content"]);
       console.log(author);
       console.log(posts)

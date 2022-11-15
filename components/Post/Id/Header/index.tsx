@@ -2,13 +2,12 @@ import React from "react";
 import { formatDate } from "../../../../lib/dateRelative";
 
 const index = ({ post }) => {
-  console.log(post);
   return (
-    <div className="space-y-4 2xl:space-y-10 border-b pt-10">
+    <div className="space-y-4 2xl:space-y-10 border-b pt-10 w-full">
       <hgroup>
         <h3 className="flex items-center text-neutral-400 font-serif cursor-default">
-          <p className="text-sm">ID</p>
-          <p className="text-lg ml-[0.1rem]">{post.id}</p>
+          <p className="text-lg">No.</p>
+          <p className="text-2xl ml-[0.1rem]">{post.count}</p>
         </h3>
         <h1
           className="
@@ -20,13 +19,18 @@ const index = ({ post }) => {
           {post.title}
         </h1>
       </hgroup>
-      <div className="w-full pb-5">
+      <div className="w-full pb-5 flex flex-col items-center">
         <div className="relative text-lg text-neutral-500 2xl:text-xl">
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: post.excerpt }}
-          />
-        </div>
+          <div className="prose">
+          {
+            post.excerpt.map(item=><div key={item}
+              dangerouslySetInnerHTML={{ __html: item }}
+            />
+       )
+          }
+          </div>
+
+          </div>
       </div>
       <div className="flex justify-end">
         <div className="bg-black p-1 text-white font-serif border-b-2 border-red-500">

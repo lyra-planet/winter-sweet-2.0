@@ -27,8 +27,8 @@ const Item = ({ post }) => {
         <hgroup>
           <h3 className="flex items-center justify-between text-neutral-400 font-serif cursor-default">
             <p>
-            <span className="text-sm">ID</span>
-            <span className="text-lg ml-[0.1rem]">{post.id}</span>
+            <span className="text-sm">No.</span>
+            <span className="text-lg ml-[0.1rem]">{post.count}</span>
             </p>
             <p className=" text-neutral-400 translate-x-[-1rem] opacity-0 group-hover/box:opacity-100 group-hover/box:translate-x-0 transition duration-150">
             <span className="text-sm">@</span>
@@ -81,7 +81,7 @@ const Item = ({ post }) => {
             [<ul className="flex flex-row space-x-1">
             {
               post.tags.map(tag=>(
-              <li>
+              <li key={tag}>
             #
             <span className="hover:text-red-500 transition duration-300 cursor-pointer">
               <Link href={"/"}>{tag}</Link>

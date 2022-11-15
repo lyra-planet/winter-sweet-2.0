@@ -13,6 +13,11 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
+
+
+/*=============================================
+=            Fs            =
+=============================================*/
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
@@ -46,6 +51,47 @@ export function getAllPost(fields: string[] = []) {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
+/*=====  End of Fs  ======*/
+
+
+
+/*=============================================
+=            GetPost            =
+=============================================*/
+export const getPostByTag = (tags:string[],title:string, fields: string[] = [])=>{
+    return prisma.post.findMany({
+      where:{
+        OR:[
+          {
+            tags:{
+              hasSome:tags
+            }
+          }
+        ],NOT:[
+        {
+          title:{
+            contains:title
+          }
+        }
+        ]
+      },
+      take: 4,
+      select: {
+        id: true,
+        count:true,
+        authorId: fields.indexOf("authorId") !== -1,
+        postData: fields.indexOf("postData") !== -1,
+        title: fields.indexOf("title") !== -1,
+        tags: fields.indexOf("tags") !== -1,
+        excerpt: fields.indexOf("excerpt") !== -1,
+        createdAt: true,
+      },
+      orderBy: { createdAt: "desc" },
+    })
+}
+
+
+
 
 export const getLastFivePostId = () => {
   return prisma.post.findMany({
@@ -76,11 +122,11 @@ export const getPost = (id: string, fields: string[] = []) => {
       title: fields.indexOf("title") !== -1,
       tags: fields.indexOf("tags") !== -1,
       excerpt: fields.indexOf("excerpt") !== -1,
+      count:true,
       createdAt: true,
     },
   });
 };
-
 export const getLastFivePosts = async (fields: string[] = []) => {
   const postsId = await getLastFivePostId();
   const posts = await Promise.all(
@@ -92,7 +138,6 @@ export const getLastFivePosts = async (fields: string[] = []) => {
     excerpt: await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))) ,
   })))
 };
-
 export const getAllPosts = async (fields: string[] = []) => {
   const postsId = await getAllPostId();
   const posts = await Promise.all(
@@ -104,3 +149,10 @@ export const getAllPosts = async (fields: string[] = []) => {
     excerpt: await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))) ,
   })))
 };
+/*=====  End of GetPost  ======*/
+
+
+
+
+
+

@@ -19,10 +19,10 @@ const index = ({ children }) => {
           className="absolute
         z-10
         w-full
-        h-full
+        h-screen
         flex flex-col items-center py-10
         translate-x-[-100%]
-        bg-white
+         bg-radial
         group-[.showNav]/sideBar:translate-x-0
         transition duration-150"
         >
