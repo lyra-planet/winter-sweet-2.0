@@ -2,7 +2,8 @@ import '../styles/global.css'
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { StoreProvider } from '../store'
+import StoreProviderComp from './_storeProvider'
+import { StoreProvider } from '../store';
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <StoreProvider initialValue={{ author: {},accessToken: {data:''} }}>
@@ -21,13 +22,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <main className="h-screen w-screen overflow-hidden font-lyra
           p-0
         border-red-500
-          border-[8px]
-          sm:border-[10px]
-          md:border-[0.4rem] ">
-        <Component {...pageProps} />
+           border-[0.8rem]
+          md:border-[0.5rem] 
+          lg:border-[0.8rem]
+          2xl:border-[1rem]">
+          <StoreProviderComp pageProps={pageProps} Component={Component}/>
         </main>
     </Auth0Provider>
     </StoreProvider>
   );
 }
-

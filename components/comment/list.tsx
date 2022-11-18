@@ -1,5 +1,5 @@
 import type { Comment } from '../../interfaces'
-import Item from '../Comment/item'
+import Item from './item'
 import { useAuth0 } from '@auth0/auth0-react'
 
 type CommentListProps = {

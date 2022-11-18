@@ -1,6 +1,9 @@
 import React from 'react'
 import Item from './item'
 import { Email, Fun, Github,Netease,QQ, Telegram, Terminal } from '../../assets'
+import {distanceToNow, distanceToNowHour} from '../../lib/dateRelative'
+import config from '../../config'
+
 const index = () => {
   return (
     <div className='bg-radial'>
@@ -12,25 +15,25 @@ const index = () => {
           <section>
             <h1 className='font-bold text-sm'>交流&探讨</h1>
           <ul>
-            <Item link={'/'}><Fun className="w-4 mr-1"/>小星球</Item>
-            <Item link={'/'}><Terminal className="w-4 mr-1"/> 掘金</Item>
-            <Item link={'/'}><Netease className="w-4 mr-1"/>网易云音乐</Item>
+            <Item link={config.links.littlePlanet}><Fun className="w-4 mr-1"/>小星球</Item>
+            <Item link={config.links.jueJin}><Terminal className="w-4 mr-1"/> 掘金</Item>
+            <Item link={config.links.netease}><Netease className="w-4 mr-1"/>网易云音乐</Item>
           </ul>
           </section>
           <section>
           <h1 className='font-bold text-sm'>联系&关注</h1>
             <ul>
-            <Item link={'/'}><Email className="w-4 mr-1"/>E-mail</Item>
-            <Item link={'/'}><Telegram className="w-4 mr-1"/>Telegram</Item>
-            <Item link={'/'}><QQ className="w-4 mr-1"/>QQ</Item>
-            <Item link={'/'}><Github className="w-4 mr-1"/>GitHub</Item>
+            <Item link={config.links.email}><Email className="w-4 mr-1"/>E-mail</Item>
+            <Item link={config.links.telegram}><Telegram className="w-4 mr-1"/>Telegram</Item>
+            <Item link={config.links.qq}><QQ className="w-4 mr-1"/>QQ</Item>
+            <Item link={config.links.github}><Github className="w-4 mr-1"/>GitHub</Item>
           </ul>
             </section>
             <section>
             <h1 className='font-bold text-sm'>Not Fun Fact</h1>
             <p className='w-30 text-neutral-500 text-sm font-serif'>本站已运行总计 
             <span className='text-red-500 font-bold'>
-            159 
+            {distanceToNowHour(config.system.startTime)}
             </span>
             小时</p>
             </section>

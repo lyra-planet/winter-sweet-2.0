@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, Play } from "../../assets";
 import { formatDate } from "../../lib/dateRelative";
 const Item = ({ post }) => {
-  console.log(post)
   return (
     <section
       className="

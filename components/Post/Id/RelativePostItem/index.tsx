@@ -3,7 +3,6 @@ import React from 'react'
 import { formatDate } from '../../../../lib/dateRelative'
 
 const index = ({post}) => {
-    console.log(JSON.parse(post.createAt))
   return (
     <Link href={`/posts/${encodeURIComponent(post.id)}`}>
         <div className=' bg-radial p-4 flex flex-col justify-between space-y-3 h-full w-full hover:scale-105 duration-300 transition'>

@@ -33,7 +33,7 @@ const index = ({ post,relativePosts }) => {
   }, [contentRef, tocRef]);
   return (
     <>
-      <section className="w-1/4 hidden md:block overflow-auto scrollbar-none">
+      <section className="w-1/5 hidden md:block overflow-auto scrollbar-none">
         <PostLeftSideBar>
           <div
             ref={tocRef}
@@ -42,7 +42,7 @@ const index = ({ post,relativePosts }) => {
           <LeftSideBar />
         </PostLeftSideBar>
       </section>
-      <section ref={mainRef} className="w-full md:w-3/4 flex flex-col overflow-auto scrollbar-none">
+      <section ref={mainRef} className="w-full md:w-4/5 flex flex-col overflow-auto scrollbar-none">
         <div className="flex flex-col xl:flex-row px-2 md:px-6 flex-grow md:space-x-6">
           {/* article */}
           <section className="space-y-10 w-full xl:w-3/5 flex items-center flex-col">
@@ -58,11 +58,12 @@ const index = ({ post,relativePosts }) => {
             {post ? <Comment postId={post.id} /> : "Loading Comments"}
           </section>
         </div>
-        <section>
-          <div>相关文章</div>
-          <div className="flex flex-col  px-2
+        <section className="px-2 md:px-6 border-b mb-10">
+          <div className="
+          text-2xl font-bold flex items-center space-x-4
+          "><p className="">相关文章</p><p className="border-b flex-grow"/></div>
+          <div className="flex flex-col
            justify-center space-x-2 py-8
-          md:px-6
           md:flex-row
           space-y-2
           md:space-y-0">

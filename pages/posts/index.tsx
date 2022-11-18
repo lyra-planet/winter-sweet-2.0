@@ -1,10 +1,8 @@
 import type { InferGetStaticPropsType } from "next";
-import Link from "next/link";
 import Footer from "../../components/Footer";
 import LeftSideBar from "../../components/LeftSideBar";
 import Header from "../../components/Mobile/Header";
 import Main from "../../components/Post/Index/Main";
-import { distanceToNow } from "../../lib/dateRelative";
 import { getAllPosts } from "../../lib/post/getPost";
 
 export default function NotePage({
@@ -15,10 +13,10 @@ export default function NotePage({
     <div className="flex flex-col h-full bg-white">
       <Header />
       <div className="flex h-full">
-        <section className="w-1/5 border-r hidden md:block">
+        <section className="w-1/4 border-r hidden md:block">
           <LeftSideBar />
         </section>
-        <section className="w-4/5 flex-grow overflow-auto justify-between scrollbar-none">
+        <section className="w-3/4 flex-grow overflow-auto justify-between scrollbar-none">
           <div className="flex w-full min-h-full flex-row">
             <Main _posts={posts}/>
           </div>

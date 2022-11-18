@@ -7,7 +7,7 @@ const index = ({ children }) => {
   const [left, right] = children;
   return (
     <div className="border-r h-full">
-      <div className="bg-red-500 z-10 fixed right-4 bottom-1/4 p-1">
+      <div className="bg-red-500 z-10 fixed right-8 bottom-1/4 p-1">
         <button onClick={() => setChange((change) => !change)}>
           <div className="w-11 h-11 flex justify-center items-center">
             <Toc className="w-10 h-10 text-white" />

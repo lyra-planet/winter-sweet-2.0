@@ -2,9 +2,16 @@ import { useStore } from "../store"
 import { observer } from "mobx-react-lite"
 import { useState } from "react"
 import { redirect } from "next/dist/server/api-utils"
+import { Router, useRouter } from "next/router"
 const useLogin = () => {
     const store = useStore()
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+    const [loading,setLoading] = useState(false)
+    const [userData,setUserData]= useState({})
+    const router = useRouter()
     const login = ({ email, password }:{email:string,password:string})=>{
+        console.log("Login!")
         new Promise(async (resolve, reject) => {
             const sendData:any = {
                 email,
@@ -34,12 +41,35 @@ const useLogin = () => {
             const {status,data:{accessToken,author}} = res
             store.author.setAuthorInfo(author)
             store.accessToken.setAccessTokenInfo({data:accessToken})
-            
+            router.push("/dashboard")
         }else{
             alert(res.status)
         }
         })
     }
-    return login
+    const handleSubmit = (e)=>{
+       handleLogin()
+       e.preventDefault()
+    }
+    async function handleLogin() {
+        setLoading(true)
+        try {
+        const data = login({
+                email: email,
+                password: password
+            })
+        } catch (error) {
+            console.log(error)
+        } finally {
+           setLoading(false)
+        }
+    }
+    return {
+        loading,
+        setPassword,
+        setEmail,
+        handleLogin,
+        handleSubmit
+    }
 }
 export default useLogin

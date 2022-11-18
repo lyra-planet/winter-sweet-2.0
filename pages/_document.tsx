@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body className="bg-white  antialiased selection:text-white selection:bg-red-500">
+        
         <Main />
         <NextScript />
       </body>

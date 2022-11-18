@@ -12,10 +12,10 @@ const useInitAuth = () => {
         const data = await res.json();
         if (data.status === "succeed") {
           store.accessToken.setAccessTokenInfo({ data: data.data.accessToken });
+          resolve(data.data.accessToken )
         } else {
-          console.log(data.status);
+          reject(false)
         }
-        resolve(true);
       } catch (error) {
         reject(error);
       }
@@ -25,7 +25,7 @@ const useInitAuth = () => {
   const getUser = () => {
     return new Promise(async (resolve, reject) => {
       try {
-        
+  
         if (store.accessToken.accessTokenInfo.data) {
           
           const res = await fetchApi(
@@ -42,11 +42,14 @@ const useInitAuth = () => {
        
           if (data.status === "succeed") {
             store.author.setAuthorInfo(data.data.author);
+            resolve(true);
           } else {
             console.log(data.status);
+            reject();
           }
+          reject()
         }
-        resolve(true);
+        reject()
       } catch (error) {
         reject(error);
       }

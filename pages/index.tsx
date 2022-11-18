@@ -1,27 +1,17 @@
 import { useRef } from "react";
 import { useEffect } from "react";
 import { GetServerSideProps } from 'next';
-import useInitAuth from '../hooks/useInitAuth';
-import useLogout from '../hooks/useLogout';
 import LeftSideBar from '../components/LeftSideBar';
 import BlogList from '../components/BlogList';
 import RightSideBar from '../components/RightSideBar';
 import Footer from '../components/Footer';
 import Header from '../components/Mobile/Header'
+import AuthLogin from '../components/Auth/Login'
 import { getLastFivePosts } from '../lib/post/getPost';
 function HomePage({posts}) {
   const darkMode = useRef(false);
-  const {initAuth} = useInitAuth()
-  const logout = useLogout()
-  useEffect(()=>{
-  initAuth()
-},[])
-  // const handleLogout = (e)=>{
-  //   e.preventDefault()
-  //   logout()
-  // }
   return (
-    <div className='flex flex-col h-full bg-white'>
+    <div className='flex flex-col h-full bg-white relative'>
    <Header/>
    <div className="flex h-full">
    <section className='w-1/5 border-r hidden md:block'>
@@ -39,14 +29,11 @@ function HomePage({posts}) {
       <Footer/>
     </section>
     </div>
-
     </div>
-
   )
 }
 
 export default HomePage
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const posts = await getLastFivePosts(['slug', 'title', 'excerpt', 'authorId','tags'])
   return {props:{

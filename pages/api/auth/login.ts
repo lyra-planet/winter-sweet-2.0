@@ -11,6 +11,7 @@ export default async function handler(
   ) {
     
     const {email,password} =  JSON.parse(req.body)
+    console.log(req.body)
     if (!email || !password) {
         return res.status(400).json({status: 'Invalid params'})
     }
@@ -19,7 +20,7 @@ export default async function handler(
         return res.status(400).json({status: 'authorEmail or password is invalid'})
 
     }
-
+    
     const doesThePasswordMatch = await bcrypt.compare(password, author.password)
 
     if (!doesThePasswordMatch) {
@@ -33,7 +34,6 @@ export default async function handler(
         authorId: author.id
     })
     sendRefreshToken(res, refreshToken)
-
     return res.status(200).send({status: 'succeed',data:{
         accessToken: accessToken, author: authorTransformer(author)
     }})

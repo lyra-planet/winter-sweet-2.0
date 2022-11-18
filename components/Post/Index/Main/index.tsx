@@ -32,11 +32,11 @@ const index = ({ _posts }) => {
 
             </section>
             <section className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 space-x-2  pb-10">
-            {posts.map((post) => (
+            {posts?.map((post) => (
               <article key={post.id} className="flex flex-row space-x-2 mb-10">
                 <section >
                     <div className="font-serif font-bold bg-red-500 px-1  text-white">
-                    156
+                    {post.count}
                     </div>
                 </section>
                 <section className="border-b border-dotted flex flex-col justify-between pb-2 space-y-2">
@@ -48,8 +48,8 @@ const index = ({ _posts }) => {
                 <div className="flex flex-row ">
                  <ul className="flex flex-row space-x-2">
             {
-              post.tags.map(tag=>(
-              <li>
+              post.tags?.slice(0,2).map(tag=>(
+              <li key={tag}>
                 <span className="text-red-500">
                 #
                 </span>
