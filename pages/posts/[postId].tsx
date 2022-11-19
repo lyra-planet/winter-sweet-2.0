@@ -1,5 +1,5 @@
 import { getPost,getPostByTag } from '../../lib/post/getPost';
-import markdownToHtml from "../../lib/post/markdownToHtml";
+import markdownToHtml from "../../lib/markdownToHtml";
 import dynamic from "next/dynamic";
 import Header from "../../components/Mobile/Header";
 
@@ -19,7 +19,6 @@ export default function PostPage({ post,relativePosts }) {
 }
 export async function getServerSideProps(context) {
   const postId = context.query.postId;
-
   const post: any = await getPost(postId, [
     "title",
     "excerpt",

@@ -3,7 +3,9 @@ import Layout from '../../components/layout'
 
 const index = () => {
   return (
-    <div>index</div>
+    <div>
+        施工中
+    </div>
   )
 }
 index.getLayout = function getLayout(page: React.ReactElement) {

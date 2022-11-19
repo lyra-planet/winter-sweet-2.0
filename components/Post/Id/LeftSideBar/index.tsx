@@ -22,16 +22,16 @@ const index = ({ children }) => {
         h-screen
         flex flex-col items-center py-10
         translate-x-[-100%]
-         bg-radial
+        bg-white
         group-[.showNav]/sideBar:translate-x-0
         transition duration-150"
         >
+        {left}
+        </section>
+        <section className="flex flex-col bg-radial items-center z-0 pt-10 font-serif space-y-5 h-full">    
           <div className="text-lg 2xl:text-xl inline-block bg-black text-white py-1 px-2 border-b-2 border-red-500">
             文章目录
           </div>
-          {left}
-        </section>
-        <section className="flex flex-col items-center z-0 pt-10 font-serif space-y-5 h-full">
           {right}
         </section>
       </div>

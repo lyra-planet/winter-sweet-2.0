@@ -1,7 +1,7 @@
-import {  formatMonth } from '../lib/dateRelative';
+import {  formatMonth } from './dateRelative';
 
 
-const useBlogList = (posts)=>{
+export const blogListTimeLine = (posts)=>{
     const timeLine = []
     let beforeTime = ''
     posts.map(post=>{
@@ -17,4 +17,3 @@ const useBlogList = (posts)=>{
     })
     return timeLine
 }
-export default useBlogList

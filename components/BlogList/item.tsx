@@ -14,8 +14,11 @@ const Item = ({ post }) => {
     flex-col justify-around
     text-sm
     first:text-base
+    xl:grid-r
     xl:px-6
-    xl:border-r
+    xl:border-l
+    xl:border-collapse
+    xl:ml-[-1px]
     xl:text-sm
     first:space-y-10
     first:xl:col-span-2

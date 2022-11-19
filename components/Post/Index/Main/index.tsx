@@ -1,8 +1,8 @@
 import Link from "next/link";
-import useBlogList from "../../../../hooks/useBlogList";
+import {blogListTimeLine} from "../../../../lib/timeLineFormat";
 import { distanceToNow, formatDate, formatDay } from '../../../../lib/dateRelative';
 const index = ({ _posts }) => {
-  const timeLine = useBlogList(_posts);
+  const timeLine = blogListTimeLine(_posts);
   return (
     <div className="py-8 px-10 space-y-10">
         <section>

@@ -7,9 +7,11 @@ import Item from './item'
 const index = ({posts}) => {
 
   return (
-    <div className='flex flex-col justify-center w-full items-center py-8 '>
-      <ul className='grid
-
+    <div className='flex flex-col justify-center w-full items-center '>
+      <ul className='
+      w-full
+      grid
+      border-collapse
       sm:grid-cols-1
       xl:grid-cols-2
       2xl:grid-rows-3'>

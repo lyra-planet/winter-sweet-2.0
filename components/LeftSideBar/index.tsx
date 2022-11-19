@@ -33,10 +33,10 @@
       ">仓库</p>
       <ul>
         <Item link="/"><StarIcon className="h-5 mr-2"/>主页<p className="hidden ml-2 lg:inline-block">Home</p></Item>
-        <Item link="/"><StarIcon className="h-5 mr-2"/>关于我 <p className="hidden ml-2 lg:inline-block">AboutMe</p></Item>
+        <Item link="/about"><StarIcon className="h-5 mr-2"/>关于我 <p className="hidden ml-2 lg:inline-block">AboutMe</p></Item>
         <Item link="/posts"><ArchiveBoxIcon className="h-5 mr-2"/>归档 <p className="hidden ml-2 lg:inline-block">Archive</p></Item>
-        <Item link="/">< BookmarkIcon className="h-5 mr-2"/>标签<p className="hidden ml-2 lg:inline-block">Tag</p></Item>
-        <Item  link="/"><CodeBracketIcon className="h-5 mr-2"/>实验室 <p className="hidden ml-2 lg:inline-block">Lab</p></Item>
+        <Item link="/tags">< BookmarkIcon className="h-5 mr-2"/>标签<p className="hidden ml-2 lg:inline-block">Tag</p></Item>
+        <Item  link="/lab"><CodeBracketIcon className="h-5 mr-2"/>实验室 <p className="hidden ml-2 lg:inline-block">Lab</p></Item>
       </ul>
       </section>
       <section>
@@ -48,8 +48,8 @@
           xl:text-lg
       ">互动</p>
       <ul>
-        <Item link="/"><ChatBubbleLeftEllipsisIcon className="h-5 mr-2"/>留言板<p className="hidden ml-2 lg:inline-block">Message</p></Item>
-        <Item  link="/"><HeartIcon className="h-5 mr-2"/>我的好友 <p className="hidden ml-2 lg:inline-block">Friend</p></Item>
+        <Item link="/comments"><ChatBubbleLeftEllipsisIcon className="h-5 mr-2"/>留言板<p className="hidden ml-2 lg:inline-block">Message</p></Item>
+        <Item  link="/friends"><HeartIcon className="h-5 mr-2"/>我的好友 <p className="hidden ml-2 lg:inline-block">Friend</p></Item>
         <Item link={config.links.friendLink}>< TruckIcon className="h-5 mr-2"/>友链 <p className="hidden ml-2 lg:inline-block">Traveling</p></Item>
       </ul>
       </section>

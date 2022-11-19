@@ -4,7 +4,7 @@ import { join } from "path";
 import matter from "gray-matter";
 import prisma from "../prisma";
 import async from "../../pages/api/post/getList";
-import markdownToHtml from "./markdownToHtml";
+import markdownToHtml from "../markdownToHtml";
 import { getAuthorById } from '../auth/author';
 
 const postsDirectory = join(process.cwd(), "_posts");

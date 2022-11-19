@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { type } from "os";
 import type { Comment } from "../../interfaces";
-import markdownToHtml from "../post/markdownToHtml";
+import markdownToHtml from "../markdownToHtml";
 import prisma from "../prisma";
 
 export default async function fetchComment(
