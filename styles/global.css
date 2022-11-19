@@ -21,6 +21,17 @@
     color: rgb(239 68 68) !important;
     font-weight: 600;
 }
+textarea.w-md-editor-text-input,.wmde-markdown-color {
+    color:black !important;
+ }
+.wmde-markdown-var{
+    height: 100% !important;
+}
+
+    .w-md-editor-input{
+        border-right: 1px solid #e5e7eb;
+        border-radius: 0 !important;
+    }
 
 
 .bitoc-ml-1::before,.bitoc-ml-5::before,.bitoc-ml-6::before,.bitoc-ml-4::before,.bitoc-ml-3::before,.bitoc-ml-2::before{

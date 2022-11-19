@@ -48,7 +48,7 @@ const index = ({ post,relativePosts }) => {
           <section className="space-y-10 w-full xl:w-3/5 flex items-center flex-col">
             <Header post={post} />
             <main
-              className="w-full prose break-words "
+              className="w-full prose max-w-none break-words "
               ref={contentRef}
               dangerouslySetInnerHTML={{ __html: post.content }}
             />

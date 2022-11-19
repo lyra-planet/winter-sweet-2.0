@@ -16,8 +16,8 @@ export default function NotePage({
         <section className="w-1/4 border-r hidden md:block">
           <LeftSideBar />
         </section>
-        <section className="w-3/4 flex-grow overflow-auto justify-between scrollbar-none">
-          <div className="flex w-full min-h-full flex-row">
+        <section className="w-3/4 flex-grow overflow-auto justify-between items-center scrollbar-none">
+          <div className="flex w-full min-h-full flex-row justify-center">
             <Main _posts={posts}/>
           </div>
           <Footer />

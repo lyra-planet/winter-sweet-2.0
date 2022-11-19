@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Play } from "../../assets";
 import { formatDate } from "../../lib/dateRelative";
 const Item = ({ post }) => {
+  console.log(post.comments)
   return (
     <section
       className="
@@ -74,7 +75,6 @@ const Item = ({ post }) => {
         <ul className="flex items-center space-x-1 text-sm text-gray-400 font-serif">
           <li className=" whitespace-nowrap">{formatDate(post.createdAt)}</li>
           <li className="inline md:group-[:not(:first-child)]/box:hidden lg:inline bg-red-500 w-1 h-1" />
-          <li className=" inline md:group-[:not(:first-child)]/box:hidden lg:inline">1小时25分钟</li>
           <li className=" bg-red-500 w-1 h-1" />
           <li className="flex flex-row">
             [<ul className="flex flex-row space-x-1">
@@ -116,7 +116,7 @@ const Item = ({ post }) => {
             "
               >
                 <span className="relative z-10 font-semibold whitespace-nowrap">
-                  35 条评论
+                  {post.comments.length} 条评论
                   <ArrowRight className="inline absolute w-3  m-0 scale-0 bottom-[0.1rem] z-10 text-white group-hover:scale-100  transition-all duration-150" />
                 </span>
           </Link>

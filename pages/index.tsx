@@ -35,7 +35,8 @@ function HomePage({posts}) {
 
 export default HomePage
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const posts = await getLastFivePosts(['slug', 'title', 'excerpt', 'authorId','tags'])
+  const posts = await getLastFivePosts(['slug', 'title', 'excerpt', 'authorId','tags','comments'])
+  console.log(posts)
   return {props:{
     posts:JSON.stringify(posts)
   }}

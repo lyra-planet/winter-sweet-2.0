@@ -122,6 +122,7 @@ export const getPost = (id: string, fields: string[] = []) => {
       title: fields.indexOf("title") !== -1,
       tags: fields.indexOf("tags") !== -1,
       excerpt: fields.indexOf("excerpt") !== -1,
+      comments: fields.indexOf("comments") !== -1,
       count:true,
       createdAt: true,
     },

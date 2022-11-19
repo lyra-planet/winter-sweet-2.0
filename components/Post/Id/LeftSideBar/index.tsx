@@ -14,7 +14,7 @@ const index = ({ children }) => {
           </div>
         </button>
       </div>
-      <div className={`relative group/sideBar ${change ? "showNav" : ""}`}>
+      <div className={`relative group/sideBar h-full ${change ? "showNav" : ""}`}>
         <section
           className="absolute
         z-10
@@ -31,7 +31,7 @@ const index = ({ children }) => {
           </div>
           {left}
         </section>
-        <section className="flex flex-col items-center z-0 py-10 font-serif space-y-5">
+        <section className="flex flex-col items-center z-0 pt-10 font-serif space-y-5 h-full">
           {right}
         </section>
       </div>

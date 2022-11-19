@@ -24,6 +24,14 @@ model Author {
 
   // Post
   posts Post[]
+
+  selections Selection[]
+
+  ads Ad[]
+
+  labGadgets LabGadget[]
+
+  friends Friend[]
 }
 
 //refreshToken
@@ -52,6 +60,9 @@ model Post {
   excerpt String[]
   title String
   comments Comment[] @relation("comments")
+
+  selectionTo  Selection?  @relation("selection", fields: [selectionToId], references: [id])
+  selectionToId String? @db.ObjectId
 }
 model PostCount{
   id   String @id @default(auto()) @map("_id") @db.ObjectId
@@ -71,4 +82,52 @@ model Comment {
   userEmail String
   replyTo  Post?  @relation("comments", fields: [replyToId], references: [id])
   replyToId String? @db.ObjectId
+}
+
+model Selection {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+
+  authorId String @db.ObjectId
+  author  Author  @relation(fields: [authorId], references: [id])
+
+  post Post[] @relation("selection")
+}
+
+model Ad{
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authorId String @db.ObjectId
+  author  Author  @relation(fields: [authorId], references: [id])
+  link String
+}
+
+model LabGadget{
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authorId String @db.ObjectId
+  author  Author  @relation(fields: [authorId], references: [id])
+
+  name String
+  picture String
+  description String
+  link String
+}
+
+model Friend{
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String @db.ObjectId
+  author  Author  @relation(fields: [authorId], references: [id])
+  
+  name String
+  picture String
+  description String
+  link String
 }

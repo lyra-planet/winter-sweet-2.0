@@ -1,53 +1,58 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import '@wangeditor/editor/dist/css/style.css'
-import {Editor,Toolbar} from '@wangeditor/editor-for-react'
-import { IDomEditor, IEditorConfig, IToolbarConfig,Boot } from '@wangeditor/editor'
-import markdownModule from '@wangeditor/plugin-md'
+import "@uiw/react-md-editor/markdown-editor.css";
+import dynamic from 'next/dynamic';
+
+  
+  const MDEditor = dynamic(
+    () => import("@uiw/react-md-editor").then((mod) => mod.default),
+    { ssr: false }
+  );
 
 
 const index = () => {
-    Boot.registerModule(markdownModule)
-    const [editor, setEditor] = useState<IDomEditor | null>(null) 
-    const [html, setHtml] = useState('<p>hello</p>')
-    useEffect(() => {
-        setTimeout(() => {
-            setHtml('<p>hello world</p>')
-        }, 1500)
-    }, [])
-    const toolbarConfig: Partial<IToolbarConfig> = { }  // TS 语法
+    const [value, setValue] = useState(`---
 
-    // 编辑器配置
-    const editorConfig: Partial<IEditorConfig> = {    // TS 语法
-        placeholder: '请输入内容...',
+title: "Test"
+
+excerpt: ["123","123"]
+
+author: "Lyra"
+
+tags: ["123"]
+
+---
+test
+    `);
+    const uploadPost = async()=>{
+      await fetch("/api/post/uploadPost",{
+        method:"POST",
+        body:value
+      })
     }
-
-    // 及时销毁 editor ，重要！
-    useEffect(() => {
-        return () => {
-            if (editor == null) return
-            editor.destroy()
-            setEditor(null)
-        }
-    }, [editor])
     return (
-        <div className='prose max-w-none max-h-none h-full'>
-            <div className='h-full border'>
-                <Toolbar
-                    editor={editor}
-                    defaultConfig={toolbarConfig}
-                    mode="default"
-                    style={{ borderBottom: '1px solid #ccc' }}
-                />
-                <Editor className='h-full scrollbar scrollbar-none overflow-hidden border-b'
-                    defaultConfig={editorConfig}
-                    value={html}
-                    onCreated={setEditor}
-                    onChange={editor => setHtml(editor.getHtml())}
-                    mode="default"
-                />
-            </div>
-        </div>
+        <main className='h-full w-full'>
+          <div className='h-full w-full  flex flex-col'>
+            <MDEditor className='h-full max-w-none prose prose-neutral
+            prose-hr:m-0 
+            prose-headings:m-0
+            prose-blockquote:m-0
+            prose-p:m-0
+            w-full border-b '
+          value={value} 
+          onChange={setValue} 
+
+          />
+           <div className='flex w-full justify-end'>
+            <button 
+            className=' bg-neutral-100 text-black hover:bg-red-500 transition duration-150  hover:text-white py-0.5 px-2'
+            onClick={()=>uploadPost()}
+            >
+              上传
+            </button>
+           </div>
+          </div>
+        </main>
     )
 }
 

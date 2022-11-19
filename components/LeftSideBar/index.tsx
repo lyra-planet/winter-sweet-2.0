@@ -21,7 +21,6 @@
       ">
       <section>
       <div>
-      
       </div>
       </section>
       <section>
@@ -33,9 +32,9 @@
       xl:text-lg
       ">仓库</p>
       <ul>
+        <Item link="/"><StarIcon className="h-5 mr-2"/>主页<p className="hidden ml-2 lg:inline-block">Home</p></Item>
         <Item link="/"><StarIcon className="h-5 mr-2"/>关于我 <p className="hidden ml-2 lg:inline-block">AboutMe</p></Item>
-        <Item link="/"><ArchiveBoxIcon className="h-5 mr-2"/>归档 <p className="hidden ml-2 lg:inline-block">Archive</p></Item>
-        <Item link="/"><SwatchIcon className="h-5 mr-2"/>分类<p className="hidden ml-2 lg:inline-block">Classification</p></Item>
+        <Item link="/posts"><ArchiveBoxIcon className="h-5 mr-2"/>归档 <p className="hidden ml-2 lg:inline-block">Archive</p></Item>
         <Item link="/">< BookmarkIcon className="h-5 mr-2"/>标签<p className="hidden ml-2 lg:inline-block">Tag</p></Item>
         <Item  link="/"><CodeBracketIcon className="h-5 mr-2"/>实验室 <p className="hidden ml-2 lg:inline-block">Lab</p></Item>
       </ul>

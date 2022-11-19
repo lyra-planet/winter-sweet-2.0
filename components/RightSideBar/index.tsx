@@ -24,9 +24,6 @@ const index = () => {
       Lyra.Advertising</p>
       <ul>
       <Ad/>
-      <Ad/>
-      <Ad/>
-      <Ad/>
       </ul>
       </section>
 

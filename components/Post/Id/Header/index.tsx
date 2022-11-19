@@ -19,7 +19,7 @@ const index = ({ post }) => {
           {post.title}
         </h1>
       </hgroup>
-      <div className="w-full pb-5 flex flex-col items-center">
+      <div className="w-full pb-5 flex flex-col ">
         <div className="relative text-lg text-neutral-500 2xl:text-xl">
           <div className="prose">
           {
