@@ -22,14 +22,11 @@ const index = ({ post,relativePosts }) => {
     })
   },[postId])
   useEffect(() => {
-    if (typeof window === "object") {
-      new TocHelper(tocRef.current, {
-        scrollSelector: contentRef.current,
-        contentSelector: contentRef.current,
-        collapsedLevel: 3,
-      });
-    }
-
+      // new TocHelper(tocRef.current, {
+      //   scrollSelector: contentRef.current,
+      //   contentSelector: contentRef.current,
+      //   collapsedLevel: 3,
+      // });
   }, [contentRef, tocRef]);
   return (
     <>

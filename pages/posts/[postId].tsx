@@ -3,9 +3,7 @@ import markdownToHtml from "../../lib/markdownToHtml";
 import dynamic from "next/dynamic";
 import Header from "../../components/Mobile/Header";
 
-const Main = dynamic(() => import("../../components/Post/Id/Main"), {
-  ssr: false,
-});
+const Main = dynamic(() => import("../../components/Post/Id/Main"));
 
 export default function PostPage({ post,relativePosts }) {
   return (
