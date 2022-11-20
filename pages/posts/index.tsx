@@ -1,4 +1,4 @@
-import type { InferGetStaticPropsType } from "next";
+import type { GetServerSideProps, InferGetStaticPropsType } from "next";
 import Footer from "../../components/Footer";
 import Layout from "../../components/layout";
 import LeftSideBar from "../../components/LeftSideBar";
@@ -8,7 +8,7 @@ import { getAllPosts } from "../../lib/post/getPost";
 
 export default function index({
   _posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}) {
   const posts = JSON.parse(_posts);
   return (
    <Main _posts={posts}/>
@@ -21,7 +21,7 @@ index.getLayout = function getLayout(page: React.ReactElement) {
     </Layout>
   )
 }
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const posts = await getAllPosts([
     "slug",
     "title",

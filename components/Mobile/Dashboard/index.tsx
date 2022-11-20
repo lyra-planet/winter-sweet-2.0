@@ -1,17 +1,26 @@
 import { StarIcon, ArchiveBoxIcon, SwatchIcon, BookmarkIcon, CodeBracketIcon, ChatBubbleLeftEllipsisIcon, HeartIcon, TruckIcon } from "@heroicons/react/24/outline";
 import { ArrowRight, Email, Fun, Github, Netease, QQ, Telegram, Terminal } from "../../../assets";
 import NavItem from "./navItem";
+import AuthForm from '../../../components/Auth/Form'
 import FooterItem from "./footerItem";
+import { useState } from "react";
 const index = () => {
+  const [active,setActive] = useState(false)
+
   return (
-    <div className="text-white px-10 py-5 space-y-14">
-      <section>
+    <div className="text-white px-10 pt-5 pb-20 space-y-14 h-full scrollbar scrollbar-none">
+      <section className="flex">
         <button className="px-3 pt-1 pb-3 flex 
         items-center font-semibold bg-white text-red-500
         hover:scale-105 duration-150 transition
-        ">
+        " onClick={()=>setActive(active=>!active)}>
         登录<ArrowRight className="w-4"/>
         </button>
+        <section>
+          <div className={`${active?"":"scale-0"} p-4 opacity-90 bg-neutral-800 right-0 absolute overflow-hidden transition-all duration-150`}>
+          <AuthForm active={active}/>
+          </div>
+        </section>
       </section>
       <section>
       <NavItem link="/"><StarIcon className="h-5 mr-2"/>关于我 AboutMe</NavItem>  
@@ -25,8 +34,8 @@ const index = () => {
       </section>
       <section>
         <div className="w-full h-8 flex justify-between border-white border-[1px]">
-        <input type="text" className="p-2 flex-grow border-none outline-none text-red-500" />
-        <button className="bg-white text-red-500 px-5">搜索</button>
+        <input type="text" className="p-2 w-5/6 flex-grow border-none outline-none text-red-500" />
+        <button className="bg-white text-red-500 whitespace-nowrap px-5">搜索</button>
         </div>
       </section>
       <section className="flex justify-between">

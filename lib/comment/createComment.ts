@@ -32,6 +32,7 @@ export default async function createComments(
 
     // write data
     await prisma.comment.create({
+      //@ts-ignore
       data:comment
     })
     console.log(user)

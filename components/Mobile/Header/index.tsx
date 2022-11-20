@@ -5,7 +5,7 @@ const index = () => {
     const [active,setActive]=useState(false)
   return (
     <div className='sticky z-50 top-0 md:hidden'>
-        <div className='bg-red-500 h-10 flex items-center justify-between '>
+        <div className='bg-red-500 h-10 flex items-center justify-between bg-clip-border'>
         <section className='text-white flex font-semibold cursor-pointer translate-y-[-0.3rem]'>
             <Link href={'/'}>
             <p></p>
@@ -28,15 +28,21 @@ const index = () => {
             </div>
         </section>
         </div>
-        <div className={`relative ${active?'active':''} group/list`}>
-            <div className='absolute overflow-hidden bg-red-500  right-0 top-0
-            transition duration-150 scale-0 w-full h-screen translate-x-full
+        <div className={`relative ${active?'active':''} group/list h-full`}>
+        <div className='
+        absolute bg-red-500 right-0 top-0
+            transition duration-150 scale-0  
+            h-screen
+            translate-x-full
             group-[.active]/list:scale-100
             group-[.active]/list:translate-x-0
+            bg-clip-border
             '>
             <DashBoard/>
             </div>
-        </div>
+    </div>
+
+        
     </div>
   )
 }

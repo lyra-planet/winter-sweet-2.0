@@ -20,10 +20,9 @@ const index = ({posts}) => {
       }
       </ul>
       <Link href={`/posts`}>
-      <div className='pt-8'>
+      <div className='py-8  '>
         <p className=' cursor-pointer bg-black text-white px-3 pt-1 py-2 hover:bg-red-500 hover:scale-105 transition duration-300'>
-          往期存档
-          <ArrowRight className="inline ml-1 w-4 text-white"/>
+        往期存档  <ArrowRight className="inline ml-1 w-4 text-white"/>
         </p>
       </div>
       </Link>

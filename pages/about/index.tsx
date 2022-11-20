@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import { getAllAboutMe } from '../../lib/about/getAbout';
 import { getAllPosts } from '../../lib/post/getPost';
 import TimeLine from '../../components/AboutMe/timeLine';
+import { GetServerSideProps } from 'next/types';
 const index = ({posts}) => {
   return (
     <div className='p-10 space-y-10 w-full min-h-screen flex flex-col items-center '>
@@ -18,8 +19,7 @@ const index = ({posts}) => {
     </div>
   )
 }
-
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const posts = await getAllAboutMe()
   console.log(posts)
   return {
