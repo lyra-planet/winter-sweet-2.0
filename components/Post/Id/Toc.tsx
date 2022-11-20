@@ -4,11 +4,14 @@ import TocHelper from "toc-helper";
 const Toc = ()=>{
     useLayoutEffect(() => {
         console.log("Toc")
-        console.log(          new TocHelper(document.getElementById('post-toc'), {
-            scrollSelector: document.getElementById('post-content'),
-            contentSelector: document.getElementById('post-content'),
-            collapsedLevel: 3,
-          }))
+        if(document.getElementById('post-toc')&&document.getElementById('post-content')){
+            console.log(          
+                new TocHelper(document.getElementById('post-toc'), {
+                scrollSelector: document.getElementById('post-content'),
+                contentSelector: document.getElementById('post-content'),
+                collapsedLevel: 3,
+              }))
+        }
         //   new TocHelper(document.getElementById('post-toc'), {
         //     scrollSelector: document.getElementById('post-content'),
         //     contentSelector: document.getElementById('post-content'),
