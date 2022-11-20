@@ -3,6 +3,7 @@ import TocHelper from "toc-helper";
 
 const Toc = ()=>{
     useLayoutEffect(() => {
+        console.log(TocHelper)
           new TocHelper(document.getElementById('post-toc'), {
             scrollSelector: document.getElementById('post-content'),
             contentSelector: document.getElementById('post-content'),
