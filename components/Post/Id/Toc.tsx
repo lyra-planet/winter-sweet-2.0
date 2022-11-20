@@ -1,21 +1,17 @@
 import { useLayoutEffect } from "react";
 import TocHelper from "toc-helper";
 
-const Toc = ({tocRef,contentRef})=>{
+const Toc = ()=>{
     useLayoutEffect(() => {
-      console.log(tocRef.current,contentRef.current)
-      if(typeof window === 'object'){
-        console.log(typeof window)
-        new TocHelper(tocRef.current, {
-          scrollSelector: contentRef.current,
-          contentSelector: contentRef.current,
-          collapsedLevel: 3,
-        });
-      }
-    }, [contentRef, tocRef]);
+          new TocHelper(document.getElementById('post-toc'), {
+            scrollSelector: document.getElementById('post-content'),
+            contentSelector: document.getElementById('post-content'),
+            collapsedLevel: 3,
+          });
+      }, []);
   return (
     <div
-    ref={tocRef}
+    id="post-toc"
     className="bg-white h-full font-serif font-sm text-sm bg-radial"
   />
   )

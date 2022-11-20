@@ -8,10 +8,8 @@ import Header from "../Header";
 import Comment from "../../../Comment";
 import RelativePostItem from "../RelativePostItem";
 import { useRouter } from 'next/router';
-
-
-import TocHelper from "toc-helper";
-
+import dynamic from "next/dynamic";
+const Toc = dynamic(()=>import('../Toc'),{ssr:false})
 
 const index = ({ post,relativePosts }) => {
   const contentRef = useRef(null);
@@ -25,25 +23,12 @@ const index = ({ post,relativePosts }) => {
       behavior: 'smooth'
     })
   },[postId])
-  useLayoutEffect(() => {
-    console.log(tocRef.current,contentRef.current)
-    if(tocRef&&contentRef){
-      new TocHelper(tocRef.current, {
-        scrollSelector: contentRef.current,
-        contentSelector: contentRef.current,
-        collapsedLevel: 3,
-      });
-    }
-  }, [contentRef, tocRef]);
   return (
     <>
       <section className="w-1/5 hidden md:block overflow-auto scrollbar-none">
         <PostLeftSideBar>
         <LeftSideBar />
-          <div
-            ref={tocRef}
-            className="bg-white h-full font-serif font-sm text-sm bg-radial"
-          />
+          <Toc/>
         </PostLeftSideBar>
       </section>
       <section ref={mainRef} className="w-full md:w-4/5 flex flex-col overflow-auto scrollbar-none">
@@ -52,7 +37,8 @@ const index = ({ post,relativePosts }) => {
           <section className="space-y-10 h-full w-full xl:w-3/5 px-2 md:px-4 flex items-center flex-col">
             <Header post={post} />
             <main
-              className="w-full prose max-w-none break-words "
+              id="post-content"
+              className="w-full prose max-w-none break-words"
               ref={contentRef}
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
