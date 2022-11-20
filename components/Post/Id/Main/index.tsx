@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import Footer from "../../../Footer";
 import PostLeftSideBar from "../LeftSideBar";
 import LeftSideBar from "../../../LeftSideBar";
@@ -22,16 +22,16 @@ const index = ({ post,relativePosts }) => {
       behavior: 'smooth'
     })
   },[postId])
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log(tocRef.current,contentRef.current)
-    // if(typeof window === 'object'){
-    //   console.log(typeof window)
-    //   new TocHelper(tocRef.current, {
-    //     scrollSelector: contentRef.current,
-    //     contentSelector: contentRef.current,
-    //     collapsedLevel: 3,
-    //   });
-    // }
+    if(typeof window === 'object'){
+      console.log(typeof window)
+      new TocHelper(tocRef.current, {
+        scrollSelector: contentRef.current,
+        contentSelector: contentRef.current,
+        collapsedLevel: 3,
+      });
+    }
   }, [contentRef, tocRef]);
   return (
     <>
