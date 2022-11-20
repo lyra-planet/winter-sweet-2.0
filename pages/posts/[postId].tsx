@@ -2,6 +2,7 @@ import { getPost,getPostByTag } from '../../lib/post/getPost';
 import markdownToHtml from "../../lib/markdownToHtml";
 import dynamic from "next/dynamic";
 import Header from "../../components/Mobile/Header";
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 const Main = dynamic(() => import("../../components/Post/Id/Main"),{ssr:false});
 
@@ -10,7 +11,9 @@ export default function PostPage({ post,relativePosts }) {
     <div className="flex flex-col h-full w-full">
       <Header />
       <div className="flex h-full">
+        <ErrorBoundary>
         <Main post={post} relativePosts={relativePosts} />
+        </ErrorBoundary>
       </div>
     </div>
   );
