@@ -3,19 +3,22 @@ import Footer from "../../../Footer";
 import PostLeftSideBar from "../LeftSideBar";
 import LeftSideBar from "../../../LeftSideBar";
 
-import TocHelper from "toc-helper";
+
 import Header from "../Header";
 import Comment from "../../../Comment";
 import RelativePostItem from "../RelativePostItem";
 import { useRouter } from 'next/router';
+
+
+import TocHelper from "toc-helper";
+
+
 const index = ({ post,relativePosts }) => {
   const contentRef = useRef(null);
   const {query:{postId} } = useRouter()
   const tocRef = useRef(null);
   const mainRef = useRef(null)
   useEffect(() => {
-    console.log(postId)
-    console.log(mainRef.current)
     mainRef.current.scrollTo({
       top: 0,
       left: 0,
@@ -24,8 +27,7 @@ const index = ({ post,relativePosts }) => {
   },[postId])
   useLayoutEffect(() => {
     console.log(tocRef.current,contentRef.current)
-    if(typeof window === 'object'){
-      console.log(typeof window)
+    if(tocRef&&contentRef){
       new TocHelper(tocRef.current, {
         scrollSelector: contentRef.current,
         contentSelector: contentRef.current,
