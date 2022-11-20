@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Footer from "../../../Footer";
 import PostLeftSideBar from "../LeftSideBar";
 import LeftSideBar from "../../../LeftSideBar";
+
 import TocHelper from "toc-helper";
 import Header from "../Header";
 import Comment from "../../../Comment";
@@ -22,6 +23,7 @@ const index = ({ post,relativePosts }) => {
     })
   },[postId])
   useEffect(() => {
+    console.log(tocRef.current,contentRef.current)
     // if(typeof window === 'object'){
     //   console.log(typeof window)
     //   new TocHelper(tocRef.current, {
