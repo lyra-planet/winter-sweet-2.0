@@ -9,6 +9,7 @@ export type Comment = {
   id?:string,
   replyTo?: Post
   replyToId?: string
+  linkTo?:string
   text: string
   userName: string,
   userPicture: string,

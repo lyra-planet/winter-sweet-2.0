@@ -4,11 +4,11 @@ import { distanceToNow, formatDate, formatDay } from '../../../../lib/dateRelati
 const index = ({ _posts }) => {
   const timeLine = blogListTimeLine(_posts);
   return (
-    <div className="py-8 px-10 space-y-10">
+    <div className="py-8 px-10 space-y-10 w-full justify-center">
         <section>
             <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
             <p>Lyra.Planet</p>
-            <p className="w-1 h-1 bg-red-500"></p>
+            <p className="w-2 h-2 bg-red-500"></p>
             <p>往期存档</p>
             </h1>
         </section>
@@ -31,20 +31,32 @@ const index = ({ _posts }) => {
                 </div>
 
             </section>
-            <section className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 space-x-2  pb-10">
+            <section className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 space-x-2  pb-10">
             {posts?.map((post) => (
               <article key={post.id} className="flex flex-row space-x-2 mb-10">
                 <section >
-                    <div className="font-serif font-bold bg-red-500 px-1  text-white">
+                    <div className="font-serif font-bold 
+                    lg:text-lg 
+                    xl:text-xl
+                    bg-red-500 px-1  text-white">
                     {post.count}
                     </div>
                 </section>
-                <section className="border-b border-dotted flex flex-col justify-between pb-2 space-y-2">
+                <section className="border-b w-full border-dotted flex flex-col justify-between pb-2 space-y-2">
                 <Link href={`/posts/${encodeURIComponent(post.id)}`}>
-                  <p className="text-base font-bold hover:text-red-500  transition duration-300 ">{post.title}</p>
+                  <p className="
+                    text-base 
+                   lg:text-lg 
+                   xl:text-xl
+                  font-bold hover:text-red-500  transition duration-300 ">{post.title}</p>
                 </Link>
-                <div className="text-sm text-neutral-500" dangerouslySetInnerHTML={{ __html: post.excerpt[0] }} />
-                <div className="text-gray-400 items-center text-sm flex space-x-2">
+                <div className="
+                  text-sm
+                 xl:text-base
+                text-neutral-500" dangerouslySetInnerHTML={{ __html: post.excerpt[0] }} />
+                <div className="text-gray-400 items-center 
+                text-sm  
+                flex space-x-2">
                 <div className="flex flex-row ">
                  <ul className="flex flex-row space-x-2">
             {

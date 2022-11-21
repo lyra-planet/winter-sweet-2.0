@@ -3,7 +3,7 @@ import CommentList from './list'
 import useComments from '../../hooks/useComment'
 
 export default function Comment({postId}) {
-  const { text, setText, comments, onSubmit, onDelete } = useComments(postId)
+  const { text, setText, comments, onSubmit, onDelete } = useComments(postId,"")
 
   return (
     <div className="w-full xl:sticky  space-y-4  xl:mb-[10rem] xl:top-0 pt-10 lx:pt-20 xl:h-[80vh] pb-8">

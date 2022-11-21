@@ -11,13 +11,13 @@ async function fetcher(url: string) {
   return fetch(queryUrl).then((res) => res.json())
 }
 
-export default function useComments(postId) {
+export default function useComments(postId,linkTo) {
   const { getAccessTokenSilently } = useAuth0()
   const [text, setText] = useState('')
   const [url, setUrl] = useState<string | null>(null)
 
   const { data: comments, mutate } = useSWR<Comment[]>(
-    `/api/comment/?postId=${postId}`,
+    `/api/comment/?postId=${postId}&linkTo=${linkTo}`,
     fetcher,
     { fallbackData: [] }
   )
@@ -34,7 +34,7 @@ export default function useComments(postId) {
     try {
       await fetch('/api/comment', {
         method: 'POST',
-        body: JSON.stringify({ replyToId:postId, text }),
+        body: JSON.stringify({ replyToId:postId, text,linkTo }),
         headers: {
           Authorization: token,
           'Content-Type': 'application/json',

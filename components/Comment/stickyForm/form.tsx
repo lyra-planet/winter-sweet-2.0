@@ -14,9 +14,9 @@ export default function CommentForm({
   const { isAuthenticated, logout, loginWithPopup } = useAuth0()
 
   return (
-    <form className='w-full' onSubmit={onSubmit}>
+    <form className='w-full h-full flex flex-col pb-10' onSubmit={onSubmit}>
       <textarea
-        className="flex w-full  p-3  resize-y text-neutral-500 outline-none border-[1px] placeholder-neutral-300"
+        className="flex w-full flex-grow p-3  resize-y text-neutral-500 outline-none border-[1px] placeholder-neutral-300"
         rows={2}
         placeholder={
           isAuthenticated
@@ -34,7 +34,7 @@ export default function CommentForm({
             <button className="py-1 px-4 bg-red-500 text-white disabled:opacity-40 hover:scale-105">
               发送
             </button>
-            <button className=" text-neutral-500" onClick={() => logout()}>
+            <button className=" text-neutral-500 bg-neutral-100 py-1 px-4" onClick={() => logout()}>
               登出
             </button>
           </div>

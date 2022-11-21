@@ -1,10 +1,15 @@
 import Link from 'next/link'
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import DashBoard from '../Dashboard'
 const index = () => {
     const [active,setActive]=useState(false)
+    const {pathname} = useRouter()
+    useEffect(() => {
+        setActive(false)
+    },[pathname])
   return (
-    <div className='sticky z-50 top-0 md:hidden'>
+    <div className='sticky z-50 top-0 md:hidden '>
         <div className='bg-red-500 h-10 flex items-center justify-between bg-clip-border'>
         <section className='text-white flex font-semibold cursor-pointer translate-y-[-0.3rem]'>
             <Link href={'/'}>
@@ -32,7 +37,7 @@ const index = () => {
         <div className='
         absolute bg-red-500 right-0 top-0
             transition duration-150 scale-0  
-            h-screen
+            h-screen w-full
             translate-x-full
             group-[.active]/list:scale-100
             group-[.active]/list:translate-x-0
@@ -41,8 +46,6 @@ const index = () => {
             <DashBoard/>
             </div>
     </div>
-
-        
     </div>
   )
 }

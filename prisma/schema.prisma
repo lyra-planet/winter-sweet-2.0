@@ -82,6 +82,8 @@ model Comment {
   userEmail String
   replyTo  Post?  @relation("comments", fields: [replyToId], references: [id])
   replyToId String? @db.ObjectId
+
+  linkTo String? 
 }
 
 model Selection {
