@@ -25,7 +25,7 @@ export default function Comment({linkTo}) {
         <section className="fixed bottom-16  right-10 space-y-4 ">
           <button 
           onClick={()=>setActive(active=>!active)}
-          className="bg-red-500 text-white py-1 px-4">
+          className="bg-red-500 text-white py-2 md:py-1 px-4">
           吐槽
           </button>
         </section>
