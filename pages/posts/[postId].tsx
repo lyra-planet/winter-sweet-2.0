@@ -38,7 +38,6 @@ export async function getServerSideProps(context) {
       createAt: JSON.stringify(post.createdAt),
     }
   )))
-  console.log(relativePosts)
   return {
     props: {
       postId,

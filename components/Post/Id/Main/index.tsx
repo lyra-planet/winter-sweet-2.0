@@ -32,9 +32,12 @@ const index = ({ post,relativePosts }) => {
         </PostLeftSideBar>
       </section>
       <section ref={mainRef} className="w-full md:w-4/5 flex flex-col overflow-auto scrollbar-none">
-        <div className="flex flex-col justify-center items-center xl:flex-row px-2 md:px-6 flex-grow xl:space-x-6">
+        <div className="flex flex-col justify-center
+        xl:flex-row px-2 md:px-6 flex-grow xl:space-x-6">
           {/* article */}
-          <section className="space-y-10 h-full w-full xl:w-3/5 px-2 md:px-4 flex items-center flex-col">
+          <section className="space-y-10 
+          flex-grow
+          h-full w-full xl:w-3/5 px-2 md:px-4 flex items-center flex-col">
             <Header post={post} />
             <main
               id="post-content"
@@ -44,7 +47,8 @@ const index = ({ post,relativePosts }) => {
             />
           </section>
           {/* comment */}
-          <section className="xl:w-2/5 xl:border-l px-2 md:px-4 w-full">
+          <section className="
+          xl:w-2/5 xl:border-l px-2 md:px-4 w-full h-full">
             {post ? <Comment postId={post.id} /> : "Loading Comments"}
           </section>
         </div>
