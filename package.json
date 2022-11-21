@@ -5,7 +5,7 @@
     "init-db:push": "prisma db push",
     "init-db": "dotenv -e .env -e .env.development -- run-s init-db:*",
     "dev": "next dev",
-    "build": "next build && init-db",
+    "build": "next build",
     "start": "next start"
   },
   "prisma": {
