@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Layout from '../../components/layout'
 import Comments from '../../components/Comment/stickyForm'
 const index = () => {
@@ -15,6 +15,10 @@ const index = () => {
       </section>
     </section>
   )
+}
+export async function getServerSideProps(context) {
+
+  return { props:{}}
 }
 index.getLayout = function getLayout(page: React.ReactElement) {
     return (

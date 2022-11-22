@@ -3,7 +3,7 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import prisma from "../prisma";
-import async from "../../pages/api/post/getList";
+import async from "../../pages/api/post/getLastFivePost";
 import markdownToHtml from "../markdownToHtml";
 import { getAuthorById } from '../auth/author';
 

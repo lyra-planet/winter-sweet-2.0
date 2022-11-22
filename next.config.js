@@ -7,4 +7,9 @@ module.exports = removeImports({
     webpack(config, options) {
       return config
     },
+    reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
+    experimental: {
+      // Required:
+      appDir: true,
+    }
   });

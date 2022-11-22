@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { useEffect } from "react";
 import { GetServerSideProps } from 'next';
 import LeftSideBar from '../components/LeftSideBar';
@@ -9,12 +9,13 @@ import Header from '../components/Mobile/Header'
 import AuthLogin from '../components/Auth/Login'
 import { getLastFivePosts } from '../lib/post/getPost';
 import Layout from "../components/layout";
-function HomePage({posts}) {
+import Loading from "../components/Comment/stickyForm/loading"
+function HomePage() {
   const darkMode = useRef(false);
   return (
       <div className='flex w-full flex-row'>
       <section className='w-full md:w-2/3 lg:w-3/4'>
-      <BlogList posts={JSON.parse(posts)}/>
+      <BlogList/>
       </section>
       <section className='w-1/3 lg:w-1/4 hidden md:block border-l xl:ml-[-1px]'>
       <RightSideBar/>
@@ -30,10 +31,5 @@ HomePage.getLayout = function getLayout(page: React.ReactElement) {
   )
 }
 export default HomePage
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const posts = await getLastFivePosts(['slug', 'title', 'excerpt', 'authorId','tags','comments'])
-  return {props:{
-    posts:JSON.stringify(posts)
-  }}
-}
+
 

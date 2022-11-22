@@ -1,18 +1,24 @@
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import useComments from "../../../hooks/useComment"
+import Loading from "./loading"
 import CommentForm from "./form"
 import CommentList from "./list"
 
 export default function Comment({linkTo}) {
     const { text, setText, comments, onSubmit, onDelete } = useComments("",linkTo)
     const [active,setActive] = useState(false)
-    return (
+    return (()=>{
+      if(typeof comments === 'boolean'){
+        return <Loading/>
+      }else{
+        return (
         <section className="relative w-full">
           <div className="bg-black p-1 inline-block text-white font-serif border-b-2 border-red-500">
            共有{comments.length}条留言
           </div>
             <section>
-            {comments?<CommentList comments={comments} onDelete={onDelete} />:""} 
+
+            <CommentList comments={comments} onDelete={onDelete} />
             </section>
         <section className={`
         ${active?"":" scale-0"} transition duration-150 origin-bottom-right
@@ -29,8 +35,9 @@ export default function Comment({linkTo}) {
           吐槽
           </button>
         </section>
-        </section>
-      
-    )
+        </section>)  
+      }    
+    })()
+
   }
   

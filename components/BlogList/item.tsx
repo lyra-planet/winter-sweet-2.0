@@ -24,7 +24,8 @@ const Item = ({ post }) => {
     first:xl:col-span-2
     first:2xl:row-span-2
     first:2xl:col-span-1
-    first:2xl:px-8"
+    first:2xl:px-8
+    "
     >
       <div className="space-y-4 2xl:group-[:first-child]/box:space-y-10">
         <hgroup>

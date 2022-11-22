@@ -15,22 +15,19 @@ export default function useComments(postId,linkTo) {
   const { getAccessTokenSilently } = useAuth0()
   const [text, setText] = useState('')
   const [url, setUrl] = useState<string | null>(null)
-
-  const { data: comments, mutate } = useSWR<Comment[]>(
+  const [isLoading,setIsLoading] = useState(true)
+  const { data: comments, mutate } = useSWR<Comment[] | boolean>(
     `/api/comment/?postId=${postId}&linkTo=${linkTo}`,
     fetcher,
-    { fallbackData: [] }
+    { fallbackData: false,suspense:false }
   )
-
   useEffect(() => {
     const url = window.location.origin + window.location.pathname
     setUrl(url)
   }, [])
-
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const token = await getAccessTokenSilently()
-
     try {
       await fetch('/api/comment', {
         method: 'POST',
@@ -46,7 +43,6 @@ export default function useComments(postId,linkTo) {
       console.log(err)
     }
   }
-
   const onDelete = async (comment: Comment) => {
     const token = await getAccessTokenSilently()
     try {
