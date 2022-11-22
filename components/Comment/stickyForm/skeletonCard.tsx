@@ -17,7 +17,7 @@ export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
         <div className="flex items-center space-x-2 w-full ">
         <div className='w-[30px] h-[30px] rounded-full bg-radial border'/>
             <p className='font-bold text-xs border-b-[2px] border-red-500 '>
-           XXXXXX</p>
+           xxxxxx</p>
         </div>
         <div className="h-full space-y-3">
         <div className="h-4 w-4/5 rounded-md  bg-neutral-200" />

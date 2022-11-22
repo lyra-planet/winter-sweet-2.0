@@ -1,15 +1,7 @@
-import { Suspense, useRef } from "react";
-import { useEffect } from "react";
-import { GetServerSideProps } from 'next';
-import LeftSideBar from '../components/LeftSideBar';
+import { useRef } from "react";
 import BlogList from '../components/BlogList';
 import RightSideBar from '../components/RightSideBar';
-import Footer from '../components/Footer';
-import Header from '../components/Mobile/Header'
-import AuthLogin from '../components/Auth/Login'
-import { getLastFivePosts } from '../lib/post/getPost';
 import Layout from "../components/layout";
-import Loading from "../components/Comment/stickyForm/loading"
 function HomePage() {
   const darkMode = useRef(false);
   return (
