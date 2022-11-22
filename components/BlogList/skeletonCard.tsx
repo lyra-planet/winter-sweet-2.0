@@ -29,7 +29,7 @@ export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
   >
       <div className="space-y-4 2xl:group-[:first-child]/box:space-y-10">
         <hgroup>
-          <h3 className="flex items-center justify-between text-neutral-200 font-serif cursor-default">
+          <h3 className="flex items-center justify-between text-neutral-200 font-serif cursor-default mb-1">
             <p className=' bg-neutral-200 rounded-md'>
             <span className="text-sm">No.</span>
             <span className="text-sm ml-[0.1rem]">xxx</span>
@@ -39,7 +39,6 @@ export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
             <span className="text-sm">xxx 提交</span>
             </p>
           </h3>
-          <a>
             <h1
               className="
             cursor-pointer text-3xl font-semibold 
@@ -49,7 +48,6 @@ export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
             >
             XXXXX
             </h1>
-          </a>
         </hgroup>
         <div className="w-full">
           <div
