@@ -21,6 +21,7 @@ export default function CommentList({ comments, onDelete }: CommentListProps) {
             <Item key={comment.id} onDelete={onDelete} comment={comment} isAdmin={isAdmin} isAuthor={isAuthor}/>
           )
         })}
+        <p className='flex justify-center '>到底了:)</p>
     </div>
   )
 }

@@ -1,7 +1,10 @@
 import Link from "next/link";
-import {blogListTimeLine} from "../../../../lib/timeLineFormat";
-import { distanceToNow, formatDate, formatDay } from '../../../../lib/dateRelative';
+import {blogListTimeLine} from "../../../lib/timeLineFormat";
+import {  formatDay } from '../../../lib/dateRelative';
+import useAllPost from "../../../hooks/useAllPost";
+import Loading from "./loading"
 const index = ({ _posts }) => {
+  const posts = useAllPost()
   const timeLine = blogListTimeLine(_posts);
   return (
     <div className="py-8 px-10 space-y-10 w-full justify-center">
@@ -13,8 +16,8 @@ const index = ({ _posts }) => {
             </h1>
         </section>
     <section className="flex flex-col">
-    {timeLine.length ? (
-        timeLine.map(({ time, posts }) => (
+    {posts ? (
+        blogListTimeLine(posts).map(({ time, posts }) => (
           <section key={time} className="space-y-10">
             <section className="
             sticky top-0
@@ -86,7 +89,7 @@ const index = ({ _posts }) => {
           </section>
         ))
       ) : (
-        <p>还没开始写博客捏:/</p>
+        <Loading/>
       )}
     </section>
 

@@ -15,7 +15,6 @@ export default function useComments(postId,linkTo) {
   const { getAccessTokenSilently } = useAuth0()
   const [text, setText] = useState('')
   const [url, setUrl] = useState<string | null>(null)
-  const [isLoading,setIsLoading] = useState(true)
   const { data: comments, mutate } = useSWR<Comment[] | boolean>(
     `/api/comment/?postId=${postId}&linkTo=${linkTo}`,
     fetcher,

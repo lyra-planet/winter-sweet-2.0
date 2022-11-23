@@ -1,10 +1,10 @@
 import CommentForm from './form'
 import CommentList from './list'
 import useComments from '../../hooks/useComment'
-import Loading from './stickyForm/loading'
+import Loading from './loading'
 
-export default function Comment({postId}) {
-  const { text, setText, comments, onSubmit, onDelete } = useComments(postId,"")  
+export default function Comment({postId,linkTo}) {
+  const { text, setText, comments, onSubmit, onDelete } = useComments(postId,linkTo)  
   return (()=>{
     if(typeof comments === 'boolean'){
       return <Loading/>
@@ -12,7 +12,7 @@ export default function Comment({postId}) {
       return  (
         <div className="
         w-full 
-        max-h-[90vh]
+        max-h-[95vh]
         flex flex-col
         xl:sticky space-y-4 xl:top-0 pt-10 lx:pt-20">
         <div className="

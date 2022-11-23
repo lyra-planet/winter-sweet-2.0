@@ -7,7 +7,7 @@ import Item from './item'
 import { SkeletonCard } from './skeletonCard'
 
 const index = () => {
-  const posts = useBlogList()
+const posts = useBlogList()
   return (
     <div className='flex flex-col justify-center w-full items-center '>
       <ul className='

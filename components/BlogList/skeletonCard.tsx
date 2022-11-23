@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-import Link from 'next/link';
 import { ArrowRight, Play } from '../../assets';
 
 export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (

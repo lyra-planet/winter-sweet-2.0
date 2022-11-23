@@ -1,33 +1,19 @@
 import React from 'react'
 import Layout from '../../components/layout'
-import { getAllAboutMe } from '../../lib/about/getAbout';
-import { getAllPosts } from '../../lib/post/getPost';
-import TimeLine from '../../components/AboutMe/timeLine';
-import { GetServerSideProps } from 'next/types';
-const index = ({posts}) => {
+
+import AboutMe  from '../../components/AboutMe';
+
+const index = () => {
   return (
     <div className='p-10 space-y-10 w-full min-h-screen flex flex-col items-center '>
       <section>
         <h1 className=' text-3xl font-bold flex items-center'>Lyra.Planet<span className='mx-2 w-2.5 h-2.5 inline-block bg-red-500'></span>关于我</h1>
       </section>
-      <section>
-        <div className='prose ' dangerouslySetInnerHTML={{ __html: posts?.[0]?.content }}/>
-      </section>
-      <section>
-        <TimeLine posts={posts}/>
-      </section>
+      <AboutMe/>
     </div>
   )
 }
-export const getServerSideProps: GetServerSideProps = async () => {
-  const posts = await getAllAboutMe()
-  console.log(posts)
-  return {
-    props: {
-      posts
-   },
-  };
-}
+
 
 index.getLayout = function getLayout(page: React.ReactElement) {
   return (

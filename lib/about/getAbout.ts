@@ -8,7 +8,7 @@ import { getAuthorById } from '../auth/author';
 /*=============================================
 =            GetAboutMe           =
 =============================================*/
-export const getAllAboutMeId = () => {
+export const getAboutMeId = () => {
   return prisma.post.findMany({
     where:{
         title:"关于我"
@@ -16,6 +16,7 @@ export const getAllAboutMeId = () => {
     select: {
       id: true,
     },
+    take:1,
     orderBy: { createdAt: "desc" },
   });
 };
@@ -34,8 +35,8 @@ export const getPost = (id: string, fields: string[] = []) => {
     },
   });
 };
-export const getAllAboutMe = async (fields: string[] = []) => {
-    const postsId = await getAllAboutMeId();
+export const getAboutMe = async (fields: string[] = []) => {
+    const postsId = await getAboutMeId();
     const posts = await Promise.all(
       postsId.map(async (post) => await getPost(post.id, fields))
     );

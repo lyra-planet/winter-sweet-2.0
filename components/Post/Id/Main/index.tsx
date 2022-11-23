@@ -49,7 +49,7 @@ const index = ({ post,relativePosts }) => {
           {/* comment */}
           <section className="
           xl:w-2/5 xl:border-l px-2 md:px-4 w-full h-full">
-            {post ? <Comment postId={post.id} /> : "Loading Comments"}
+            {post ? <Comment postId={post.id} linkTo={""} /> : "Loading Comments"}
           </section>
         </div>
         <section className="px-2 md:px-6 border-b mb-10">
