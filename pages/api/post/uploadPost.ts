@@ -5,7 +5,6 @@ import { getRefreshTokenByToken } from "../../../lib/token";
 import { paraseCookie } from "../../../lib/utils/cookie";
 import { createPost, deletePosts, incCount } from '../../../lib/post/createPost';
 import { decodeRefreshToken, generateTokens } from "../../../lib/utils/jwt";
-import matter from "gray-matter";
 import { matterPost } from "../../../lib/post/matter";
 export default async function handler(
   req: NextApiRequest,

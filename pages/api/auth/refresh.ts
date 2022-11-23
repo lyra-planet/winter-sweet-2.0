@@ -1,7 +1,3 @@
-// import { sendError } from "h3"
-// import { getRefreshTokenByToken } from "../../db/refreshTokens.js"
-// import { decodeRefreshToken, generateTokens } from "../../utils/jwt.js"
-// import { getUserById } from "../../db/users.js"
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuthorById } from "../../../lib/auth/author";
 import { getRefreshTokenByToken } from "../../../lib/token";

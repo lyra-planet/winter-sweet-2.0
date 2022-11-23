@@ -1,6 +1,3 @@
-import { useLayoutEffect } from "react";
-import TocHelper from "toc-helper";
-
 const Toc = ()=>{
     // useLayoutEffect(() => {
     //     console.log("Toc")

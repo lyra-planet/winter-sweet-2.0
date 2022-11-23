@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getAuthorById } from "../../../lib/auth/author";
-import { getAllPost, getAllPosts } from "../../../lib/post/getPost";
+import { getAllPost} from "../../../lib/post/getPost";
 import { getRefreshTokenByToken } from "../../../lib/token";
 import { paraseCookie } from "../../../lib/utils/cookie";
-import { createPost, deletePosts, incCount } from '../../../lib/post/createPost';
-import { decodeRefreshToken, generateTokens } from "../../../lib/utils/jwt";
+import { createPost, incCount } from '../../../lib/post/createPost';
+import { decodeRefreshToken} from "../../../lib/utils/jwt";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse

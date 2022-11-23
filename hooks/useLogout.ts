@@ -1,7 +1,4 @@
 import { useStore } from "../store"
-import { observer } from "mobx-react-lite"
-import { useState } from "react"
-import { redirect } from "next/dist/server/api-utils"
 import cookie from 'react-cookies'
 import { useRouter } from "next/router"
 const useLogout = () => {

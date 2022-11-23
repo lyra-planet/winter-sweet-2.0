@@ -1,12 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getAuthorByEmailAndPassword } from '../../../lib/auth/author'
-import {generateTokens, sendRefreshToken } from '../../../lib/utils/jwt'
-import {createRefreshToken} from '../../../lib/token'
-import bcrypt from "bcrypt"
-import { authorTransformer } from '../../../lib/transformers/author'
 import { NextFetchEvent } from 'next/server';
 import { removeRefreshToken } from '../../../lib/token/index';
-import cookies from 'js-cookie';
+
 import { paraseCookie, delCookie } from '../../../lib/utils/cookie';
 
 export default async function handler(

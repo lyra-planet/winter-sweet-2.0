@@ -1,4 +1,4 @@
-import { ArrowRight, Play } from '../../assets';
+import {  Play } from '../../assets';
 
 export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
   <div

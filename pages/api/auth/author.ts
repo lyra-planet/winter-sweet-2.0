@@ -1,9 +1,8 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { createAuthor, getAuthorById } from '../../../lib/auth/author';
-import { authorTransformer } from '../../../lib/transformers/author';
+import { getAuthorById } from '../../../lib/auth/author';
 import { decodeAccessToken } from '../../../lib/utils/jwt';
-import { paraseCookie } from '../../../lib/utils/cookie';
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse

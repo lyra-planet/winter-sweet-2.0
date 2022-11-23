@@ -1,7 +1,5 @@
-import type { Post } from "../../interfaces";
 import prisma from "../prisma";
 import markdownToHtml from "../markdownToHtml";
-import { getAuthorById } from '../auth/author';
 
 
 

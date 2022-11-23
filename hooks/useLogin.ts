@@ -1,8 +1,6 @@
 import { useStore } from "../store"
-import { observer } from "mobx-react-lite"
 import { useState } from "react"
-import { redirect } from "next/dist/server/api-utils"
-import { Router, useRouter } from "next/router"
+import { useRouter } from "next/router"
 const useLogin = () => {
     const store = useStore()
     const [email,setEmail] = useState("")

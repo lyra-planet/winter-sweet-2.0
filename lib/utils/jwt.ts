@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken"
 import { NextApiResponse } from "next"
 import { setCookie } from "./cookie"
-import cookies from 'js-cookie'
 const generateAccessToken = (author: { id: string }) => { 
   const jwtAccessSecret = process.env.JWT_ACCESS_TOKEN_SECRET
     return jwt.sign({ authorId: author.id },jwtAccessSecret, {
