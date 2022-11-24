@@ -27,7 +27,6 @@ export async function getServerSideProps(context) {
     "postData",
     "tags"
   ]);
-
   const content = await markdownToHtml(post.postData);
   const excerpt = await Promise.all(post.excerpt.map(item=>markdownToHtml(item || '')))
   const relativePosts = await Promise.all((await getPostByTag(post.tags,post.title,['title', 'excerpt', 'authorId','tags']))

@@ -149,6 +149,13 @@ export const getAllPosts = async (fields: string[] = []) => {
     excerpt: await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))) ,
   })))
 };
+export const getAllTags= async () => {
+  const postsId = await getAllPostId();
+  const posts = await Promise.all(
+    postsId.map(async (post) => await getPost(post.id, ["tags","title"]))
+  );
+  return posts
+};
 /*=====  End of GetPost  ======*/
 
 

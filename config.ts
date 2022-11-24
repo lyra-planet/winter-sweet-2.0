@@ -3,7 +3,7 @@ const config = {
         startTime:"2022-11-17 00:00:00"
     },
     links:{
-        friendLink:"",
+        friendLink:"https://travellings.link",
         jueJin:"",
         netease:"",
         github:"",

@@ -3,16 +3,15 @@ import {blogListTimeLine} from "../../../lib/timeLineFormat";
 import {  formatDay } from '../../../lib/dateRelative';
 import useAllPost from "../../../hooks/useAllPost";
 import Loading from "./loading"
-const index = ({ _posts }) => {
+const index = () => {
   const posts = useAllPost()
-  const timeLine = blogListTimeLine(_posts);
   return (
     <div className="py-8 px-10 space-y-10 w-full justify-center">
         <section>
             <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
             <p>Lyra.Planet</p>
             <p className="w-2 h-2 bg-red-500"></p>
-            <p>往期存档</p>
+            <p>归档</p>
             </h1>
         </section>
     <section className="flex flex-col">
@@ -92,8 +91,6 @@ const index = ({ _posts }) => {
         <Loading/>
       )}
     </section>
-
-
     </div>
   );
 };

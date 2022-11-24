@@ -6,12 +6,9 @@ import Header from "../../components/Mobile/Header";
 import Main from "../../components/Post/Main";
 import { getAllPosts } from "../../lib/post/getPost";
 
-export default function index({
-  _posts,
-}) {
-  const posts = JSON.parse(_posts);
+export default function index() {
   return (
-   <Main _posts={posts}/>
+   <Main/>
   );
 }
 index.getLayout = function getLayout(page: React.ReactElement) {
@@ -21,18 +18,4 @@ index.getLayout = function getLayout(page: React.ReactElement) {
     </Layout>
   )
 }
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const posts = await getAllPosts([
-    "slug",
-    "title",
-    "excerpt",
-    "authorId",
-    "tags",
-    "authorName",
-  ]);
-  return {
-    props: {
-      _posts: JSON.stringify(posts),
-    },
-  };
-}
+
