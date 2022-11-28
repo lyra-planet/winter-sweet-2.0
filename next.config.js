@@ -6,10 +6,8 @@ const removeImports = require('next-remove-imports')({
 module.exports = removeImports({
     webpack(config, options) {
       return config
-    }
+    },
+    images: {
+      domains: ['s.anw.red'],
+    },
 })
-module.exports = {
-  images: {
-    domains: ['s.anw.red'],
-  },
-}
