@@ -8,7 +8,7 @@ const index = () => {
   const posts = useAboutMe()
   return (
     <section className='w-full'>
-    <section>
+    <section className='w-full flex justify-center'>
       {
         typeof posts !== 'boolean' ? <div className='prose ' dangerouslySetInnerHTML={{ __html: posts?.[0]?.content }}/>:(
           <Loading/>

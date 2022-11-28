@@ -6,19 +6,24 @@ import config from '../../config'
 
 const index = () => {
   const yiyan = useRef(null)
+  const creater = useRef(null)
   useEffect(() => {
     fetch('https://v1.hitokoto.cn?c=a&c=c&min_length=30')
     .then(response => response.json())
     .then(data => {
-      yiyan.current.innerText = data.hitokoto + "\n--" + data.from
+      yiyan.current.innerText = data.hitokoto
+      creater.current.innerText = "--" + data.from
     })
     .catch(console.error)
   }, [])
   return (
-    <div className='bg-radial'>
+    <div className='bg-radial pb-10'>
       <div className='px-8 lg:flex lg:justify-around'>
-        <section ref={yiyan} className='py-8 lg:w-1/3 font-semibold'>
+        <section  className='py-8 lg:w-1/3 font-semibold'>
+        <p ref={yiyan}>
         ‌待在Lab里无所事事的时间，果汁入口的时候，走在街上的一瞬，在某时某刻与某人接吻的时候，就算不是时常也好，就算一百次中只有一次也好，希望你能够想起我，因为我就身在那里。 
+        </p>
+        <p className='w-full justify-end flex' ref={creater}>--xxx</p>
         </section>
         <section className='lg:w-1/2 flex flex-row justify-between py-8'>
           <section>

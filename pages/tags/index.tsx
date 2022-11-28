@@ -13,15 +13,15 @@ const index = () => {
         setActive(index)
     }
   return (
-    <div className="pt-8 pb-10 px-10 space-y-4 w-full flex flex-col h-screen">
-    <section className="h-[10%]">
+    <div className="pt-8 pb-10 px-10 space-y-4 w-full flex flex-col h-full md:h-screen">
+    <section className=" md:h-[10%]">
         <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
         <p>Lyra.Planet</p>
         <p className="w-2 h-2 bg-red-500"></p>
         <p>标签集</p>
         </h1>
     </section>
-<section className="flex flex-row h-[90%] font-serif px-2 overflow-hidden">
+<section className="flex flex-col space-y-4 h-[85%] md:space-y-0 md:flex-row font-serif px-2 ">
     {
         tags?<>
           <LeftSideBar tags={tags} active={active} setPosts={handlePosts}/>

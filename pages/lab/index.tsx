@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../../components/layout'
-
+import Main from '../../components/Lab/Main'
 const index = () => {
   return (
-    <div>index</div>
+    <Main/>
   )
 }
 index.getLayout = function getLayout(page: React.ReactElement) {

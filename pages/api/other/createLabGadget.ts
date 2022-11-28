@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getAuthorById } from "../../../lib/auth/author";
+import { getAllPost} from "../../../lib/post/getPost";
 import { getRefreshTokenByToken } from "../../../lib/token";
 import { paraseCookie } from "../../../lib/utils/cookie";
-import { createPost,incCount } from '../../../lib/post/createPost';
 import { decodeRefreshToken} from "../../../lib/utils/jwt";
-import { matterPost } from "../../../lib/post/matter";
+import { createLabGadget } from "../../../lib/other/createOther";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -18,7 +18,6 @@ export default async function handler(
         .send({ status: "Refresh token is invalid", data: {} });
     }
     const rToken = await getRefreshTokenByToken(refreshToken);
-
     if (!rToken) {
       return res
         .status(401)
@@ -28,19 +27,14 @@ export default async function handler(
     console.log(token);
     try {
       const author = await getAuthorById(token.authorId);
-      console.log(author);
-      const post = matterPost(req.body)
-      if(post){
-        await incCount()
-        await createPost({
+      
+      const  {name, picture, description,link} = req.body
+      console.log(req.body);
+        await createLabGadget({
           authorId: author.id,
-            postData: post.content,
-            title: post.title,
-            tags: post.tags,
-            excerpt: post.excerpt,
+          name, picture, description,link
         })
-      }
-      return res.status(200).send({ status: "succeed", data: {} });
+        return res.status(200).send({ status: "succeed", data: {} });
     } catch (error) {
       return res.status(401).send({ status: "someThing went wrong", data: {} });
     }

@@ -1,11 +1,9 @@
 import React from 'react'
 import Layout from '../../components/layout'
-
+import Main from '../../components/Friend/Main'
 const index = () => {
   return (
-    <div>
-        施工中
-    </div>
+    <Main/>
   )
 }
 index.getLayout = function getLayout(page: React.ReactElement) {

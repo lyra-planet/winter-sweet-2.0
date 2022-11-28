@@ -8,3 +8,8 @@ module.exports = removeImports({
       return config
     }
 })
+module.exports = {
+  images: {
+    domains: ['s.anw.red'],
+  },
+}
