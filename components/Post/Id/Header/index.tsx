@@ -19,19 +19,7 @@ const index = ({ post }) => {
           {post.title}
         </h1>
       </hgroup>
-      <div className="w-full pb-5 flex flex-col ">
-        <div className="relative text-lg text-neutral-500 2xl:text-xl">
-          <div className="prose">
-          {
-            post.excerpt.map(item=><div key={item}
-              dangerouslySetInnerHTML={{ __html: item }}
-            />
-       )
-          }
-          </div>
 
-          </div>
-      </div>
       <div className="flex justify-end">
         <div className="bg-black p-1 text-white font-serif border-b-2 border-red-500">
           {formatDate(post.createAt)}

@@ -16,7 +16,7 @@ const index = () => {
             <p>文章管理</p>
             </h1>
         </section>
-      <section className='h-[80%] w-full overflow-auto'>
+      <section className='h-full w-full overflow-auto'>
       <section className='min-w-[55rem] '>
       <div className='p-1 border-b flex items-center bg-radial font-bold'>
       <p className='w-[10%] flex justify-center'>
@@ -35,6 +35,7 @@ const index = () => {
       </section>
       </section>
     </section>
+    
   )
 }
 index.getLayout = function getLayout(page: React.ReactElement) {

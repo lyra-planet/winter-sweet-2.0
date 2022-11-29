@@ -9,6 +9,8 @@ import Fun from './icon/fun'
 import ArrowRight from './icon/arrowRight'
 import Play from './icon/play'
 import Toc from './icon/toc'
+import Spin from './icon/spin'
+import File from './icon/file'
 export {
     Github,
     QQ,
@@ -20,5 +22,7 @@ export {
     Fun,
     ArrowRight,
     Play,
-    Toc
+    Toc,
+    Spin,
+    File
 }

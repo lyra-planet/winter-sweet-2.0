@@ -11,7 +11,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
       const author = await authCheck(req,res) as Author
-      const {before,after} = JSON.parse(req.body)
+      const {before,after,status} = JSON.parse(req.body)
       console.log(after,before)
       const post = matterPost(after)
       
@@ -23,7 +23,7 @@ export default async function handler(
               title: post.title,
               tags: post.tags,
               excerpt: post.excerpt,
-          })
+          },status)
         }else{
           await incCount()
           await createPost({
@@ -32,7 +32,7 @@ export default async function handler(
               title: post.title,
               tags: post.tags,
               excerpt: post.excerpt,
-          })
+          },status)
         }
         
       }

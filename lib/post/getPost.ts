@@ -71,6 +71,11 @@ export const getPostByTag = (tags:string[],title:string, fields: string[] = [])=
           title:{
             contains:title
           }
+        },{
+          status:0
+        },
+        {
+          status:-1
         }
         ]
       },
@@ -94,6 +99,11 @@ export const getPostByTag = (tags:string[],title:string, fields: string[] = [])=
 
 export const getLastFivePostId = () => {
   return prisma.post.findMany({
+    where:{NOT:[{
+        status:0
+      },{
+        status:-1
+      }]},
     select: {
       id: true,
     },
@@ -103,6 +113,11 @@ export const getLastFivePostId = () => {
 };
 export const getAllPostId = () => {
   return prisma.post.findMany({
+    where:{NOT:[{
+      status:0
+    },{
+      status:-1
+    }]},
     select: {
       id: true,
     },
@@ -122,6 +137,7 @@ export const getPost = (id: string, fields: string[] = []) => {
       tags: fields.indexOf("tags") !== -1,
       excerpt: fields.indexOf("excerpt") !== -1,
       comments: fields.indexOf("comments") !== -1,
+      status:true,
       count:true,
       createdAt: true,
     },

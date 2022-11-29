@@ -7,7 +7,6 @@ import Form from '../Form'
 const Login = () => {
   const [active,setActive] = useState(false)
   const store = useStore();
-  const logout = useLogout()
   return (
     <div className=' text-neutral-700'>
       <section className={`${store.author.authorInfo.name?'hidden':''}`}>

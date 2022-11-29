@@ -23,11 +23,11 @@ const LeftSideBar = () => {
     ">控制台</Link>
     <ul>
       <Item link="/dashboard/about"><StarIcon className="h-5 mr-2"/>个人简介<p className="hidden ml-2 lg:inline-block">AboutMe</p></Item>
-      <Item link="/dashboard/editor"><ArchiveBoxIcon className="h-5 mr-2"/>文章编辑<p className="hidden ml-2 lg:inline-block">Archive</p></Item>
-      <Item link="/dashboard/manager"><SwatchIcon className="h-5 mr-2"/>文章管理<p className="hidden ml-2 lg:inline-block">Classification</p></Item>
-      <Item link="/dashboard/upload">< BookmarkIcon className="h-5 mr-2"/>文章上传<p className="hidden ml-2 lg:inline-block">Tag</p></Item>
-      <Item link="/"><CodeBracketIcon className="h-5 mr-2"/><p className="hidden ml-2 lg:inline-block">其他</p></Item>
-      <Item link="/"><CodeBracketIcon className="h-5 mr-2"/><p className="hidden ml-2 lg:inline-block">主页</p></Item>
+      <Item link="/dashboard/editor"><ArchiveBoxIcon className="h-5 mr-2"/>文章编辑<p className="hidden ml-2 lg:inline-block">Editor</p></Item>
+      <Item link="/dashboard/manager"><SwatchIcon className="h-5 mr-2"/>文章管理<p className="hidden ml-2 lg:inline-block">Manager</p></Item>
+      <Item link="/dashboard/upload">< BookmarkIcon className="h-5 mr-2"/>文章上传<p className="hidden ml-2 lg:inline-block">Upload</p></Item>
+      <Item link="/dashboard/other"><CodeBracketIcon className="h-5 mr-2"/>其他<p className="hidden ml-2 lg:inline-block">Other</p></Item>
+      <Item link="/"><CodeBracketIcon className="h-5 mr-2"/>主页<p className="hidden ml-2 lg:inline-block">Home</p></Item>
     </ul>
     </section>
     </section>
