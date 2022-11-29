@@ -15,8 +15,8 @@ export default async function getPosts(author,req:NextApiRequest,res:NextApiResp
             title: true,
             tags: true,
             excerpt: false,
+            status:true,
             createdAt: true,
-            status:true
           },
           orderBy: { createdAt: "desc" }}
     ) 

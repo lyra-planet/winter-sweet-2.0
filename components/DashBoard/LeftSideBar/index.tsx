@@ -22,7 +22,6 @@ const LeftSideBar = () => {
      cursor-pointer
     ">控制台</Link>
     <ul>
-      <Item link="/dashboard/about"><StarIcon className="h-5 mr-2"/>个人简介<p className="hidden ml-2 lg:inline-block">AboutMe</p></Item>
       <Item link="/dashboard/editor"><ArchiveBoxIcon className="h-5 mr-2"/>文章编辑<p className="hidden ml-2 lg:inline-block">Editor</p></Item>
       <Item link="/dashboard/manager"><SwatchIcon className="h-5 mr-2"/>文章管理<p className="hidden ml-2 lg:inline-block">Manager</p></Item>
       <Item link="/dashboard/upload">< BookmarkIcon className="h-5 mr-2"/>文章上传<p className="hidden ml-2 lg:inline-block">Upload</p></Item>

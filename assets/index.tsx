@@ -11,6 +11,9 @@ import Play from './icon/play'
 import Toc from './icon/toc'
 import Spin from './icon/spin'
 import File from './icon/file'
+import Check from './icon/check'
+import Alert from './icon/alert'
+import Error from './icon/error'
 export {
     Github,
     QQ,
@@ -24,5 +27,8 @@ export {
     Play,
     Toc,
     Spin,
-    File
+    File,
+    Check,
+    Alert,
+    Error
 }

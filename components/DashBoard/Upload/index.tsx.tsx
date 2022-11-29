@@ -11,20 +11,20 @@ const convertBytesToKB = (bytes) => Math.round(bytes / KILO_BYTES_PER_BYTE);
 
 const Upload = ({
   label,
+  uploadPost,
   updateFilesCb,
   maxFileSizeInBytes = DEFAULT_MAX_FILE_SIZE_IN_BYTES,
   ...otherProps
 }) => {
   const fileInputField = useRef(null);
   const [files, setFiles] = useState({});
-
+  const [status,setStatus] = useState(1)
   const handleUploadBtnClick = () => {
     fileInputField.current.click();
   };
 
   const addNewFiles = (newFiles) => {
     for (let file of newFiles) {
-      console.log(file)
       if (file.size < maxFileSizeInBytes) {
         if (!otherProps.multiple) {
           return { file };
@@ -37,7 +37,7 @@ const Upload = ({
 
   const callUpdateFilesCb = (files) => {
     const filesAsArray = convertNestedObjectToArray(files);
-    updateFilesCb(filesAsArray);
+    updateFilesCb(filesAsArray,status);
   };
 
   const handleNewFileUpload = (e) => {
@@ -57,7 +57,7 @@ const Upload = ({
   return (
     <>
     {
-      Object.keys(files)[0]?   <section className=" relative bg-neutral-100 w-full h-1/2 border flex flex-col items-center justify-center">
+      Object.keys(files)[0]?   <section className=" relative bg-neutral-100 w-full h-2/3 border flex flex-col items-center justify-center">
         <p>
           <File className=" text-neutral-400 w-20 h-20"/>
         </p>
@@ -76,7 +76,7 @@ const Upload = ({
           );
         })}
       </section>
-    </section>:  <section className=" cursor-pointer relative bg-radial w-full h-1/2 border flex flex-col items-center justify-center space-y-2">
+    </section>:  <section className=" cursor-pointer relative bg-radial w-full h-2/3 border flex flex-col items-center justify-center space-y-2">
         <label className=" text-lg font-serif">{label}</label>
         <button type="button" onClick={handleUploadBtnClick}>
           <i className="fas fa-file-upload" />
@@ -96,7 +96,31 @@ const Upload = ({
       </section>
     }
 
-
+      <div className='flex w-full justify-between'>
+            <div className=' space-x-1'>
+              <button 
+              onClick={()=>setStatus(1)}
+              className={`w-20 p-1 cursor-pointer ${status===1 ? " bg-green-500 text-white font-semibold":" bg-neutral-200 text-black hover:bg-neutral-300"}`}>
+                Publish
+              </button>
+              <button 
+              onClick={()=>setStatus(-1)}
+              className={`p-1 w-20  border-r cursor-pointer ${status===-1 ? " bg-yellow-500 text-white font-semibold":" bg-neutral-200 text-black hover:bg-neutral-300"}`}>
+                Draft
+              </button>
+              <button 
+              onClick={()=>setStatus(0)}
+              className={`p-1 w-20  border-r cursor-pointer ${status===0 ? " bg-blue-500 text-white font-semibold":" bg-neutral-200 text-black hover:bg-neutral-300"}`}>
+               Delete
+              </button>
+            </div>
+            <button 
+            className=' bg-neutral-100 text-black hover:bg-red-500 transition duration-150  hover:text-white py-0.5 px-2'
+            onClick={()=>uploadPost()}
+            >
+              上传
+            </button>
+      </div>
 
     </>
   );

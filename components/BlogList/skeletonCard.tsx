@@ -32,10 +32,6 @@ export const SkeletonCard = ({ isLoading }: { isLoading?: boolean }) => (
             <span className="text-sm">No.</span>
             <span className="text-sm ml-[0.1rem]">xxx</span>
             </p>
-            <p className=" bg-neutral-200 rounded-md text-neutral-200 translate-x-[-1rem] opacity-0 group-hover/box:opacity-100 group-hover/box:translate-x-0 transition duration-150">
-            <span className="text-sm">@</span>
-            <span className="text-sm">xxx 提交</span>
-            </p>
           </h3>
             <h1
               className="

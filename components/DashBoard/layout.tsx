@@ -6,7 +6,7 @@ import LeftSideBar from "./LeftSideBar";
 
 export default function Layout({ children }) {
     return (
-        <div className='flex flex-col h-full bg-white relative'>
+        <div className='flex flex-col h-full bg-white'>
         <Header/>
         <div className="flex h-full">
         <section className='w-1/5 border-r hidden md:block'>

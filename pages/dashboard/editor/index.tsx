@@ -16,12 +16,7 @@ const index = () => {
   }
   },[router])
   return (
-    <div className='h-full'>
-    <section>
-
-    </section>
     <Editor post={post}/>
-    </div>
   )
 }
 index.getLayout = function getLayout(page: React.ReactElement) {

@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react'
 import "@uiw/react-md-editor/markdown-editor.css";
 import dynamic from 'next/dynamic';
 import { Spin } from '../../../assets';
-
+import Modal from '../../Modal'
   
   const MDEditor = dynamic(
     () => import("@uiw/react-md-editor"),
@@ -12,6 +12,7 @@ import { Spin } from '../../../assets';
   const index = ({post=false}:{post:any}) => {
     const [value, setValue] = useState('')
     const [status,setStatus] = useState(1)
+    const [modal,setModal] = useState(0)
     useEffect(()=>{
     const format = !post.title? `---
 
@@ -48,13 +49,21 @@ if(typeof post.status === 'number'){
     },[post])
   
     const uploadPost = async()=>{
-      await fetch("/api/post/uploadPost",{
+      const data = await fetch("/api/post/uploadPost",{
         method:"POST",
         body:JSON.stringify({before:post,after:value,status:status})
-      })
+      }).then(res=>res.json())
+      console.log(data)
+      if(data.status==="succeed"){
+        setModal(1)
+        setTimeout(()=>{
+          setModal(0)
+        },3000)
+      }
     }
     return (
         <main className='h-full w-full'>
+        <Modal active={modal} type={1}>上传成功</Modal>
           <div className='h-full w-full  flex flex-col'>
             <Suspense fallback={
               <div className='h-full bg-neutral-100 flex items-center justify-center
@@ -62,7 +71,7 @@ if(typeof post.status === 'number'){
               relative overflow-hidden 
               before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-tran-gray-tran
               '>
-              <Spin className="w-10 h-10 animate-spin"/>Loading....
+              <Spin className="w-10 h-10 animate-spin text-neutral-600"/>Loading....
               </div>
             }>
             <MDEditor className='h-full max-w-none prose prose-neutral

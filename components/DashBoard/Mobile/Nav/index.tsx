@@ -20,7 +20,6 @@ const index = () => {
       </section>
       <section>
       <NavItem link="/dashboard"><StarIcon className="h-5 mr-2"/>控制台 Dashboard</NavItem>  
-      <NavItem link="/dashboard/about"><StarIcon className="h-5 mr-2"/>个人简介 AboutMe</NavItem>  
       <NavItem link="/dashboard/editor">< BookmarkIcon className="h-5 mr-2"/>文章编辑 Editor</NavItem>
       <NavItem link="/dashboard/manager"><ArchiveBoxIcon className="h-5 mr-2"/>文章管理 Manager</NavItem>
       <NavItem  link="/dashboard/upload"><CodeBracketIcon className="h-5 mr-2"/>文章上传 Upload</NavItem>

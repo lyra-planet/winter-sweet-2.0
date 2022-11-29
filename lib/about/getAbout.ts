@@ -8,7 +8,11 @@ import markdownToHtml from "../markdownToHtml";
 =============================================*/
 export const getAboutMeId = () => {
   return prisma.post.findMany({
-    where:{
+    where:{NOT:[{
+      status:0
+    },{
+      status:-1
+    }],
         title:"关于我"
     },
     select: {

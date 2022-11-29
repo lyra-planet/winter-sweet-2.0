@@ -13,7 +13,7 @@ const item = ({post,active}) => {
       </div>
       <p className='w-[10%]  flex justify-center'>{post.count}</p>
       <p className='w-[20%] flex justify-center'>{post.title}</p>
-      <p className='w-[30%] flex justify-center'>{post.tags}</p>
+      <p className='w-[30%] flex justify-center'>{post.tags.join(' ')}</p>
       <p className='w-[30%] flex justify-center'>{post.createdAt}</p>
       </div>
   )
