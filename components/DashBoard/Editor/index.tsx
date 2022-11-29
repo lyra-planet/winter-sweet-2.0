@@ -10,26 +10,51 @@ import dynamic from 'next/dynamic';
   );
 
 
-const index = () => {
+const index = ({post=false}:{post:any}) => {
     const [value, setValue] = useState(`---
 
 title: "Test"
 
-excerpt: ["123","123"]
-
-author: "Lyra"
+excerpt: ["123123","123"]
 
 tags: ["123"]
 
 ---
 test
-    `);
+    `)
+
+
+  useEffect(()=>{
+    const format = !post.title? `---
+
+title: "Test"
+    
+excerpt: ["123123","123"]
+    
+tags: ["123"]
+    
+---
+test
+`: `---
+    
+title: "${post?.title}"
+      
+excerpt: ["${post?.excerpt?.join(`","`)}"]
+    
+tags: ["${post?.tags?.join(`","`)}"]
+      
+---
+test`
+setValue(format)
+},[post])
+  
     const uploadPost = async()=>{
       await fetch("/api/post/uploadPost",{
         method:"POST",
-        body:value
+        body:JSON.stringify({before:post,after:value})
       })
     }
+    console.log(post)
     return (
         <main className='h-full w-full'>
           <div className='h-full w-full  flex flex-col'>

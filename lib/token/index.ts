@@ -22,6 +22,9 @@ export const removeRefreshToken = (token) => {
     })
 }
 
-export const removeAllRefreshToken = () => {
-    return prisma.refreshToken.deleteMany()
+export const removeAllRefreshToken = async() => {
+   await prisma.refreshToken.deleteMany()
+   await prisma.post.deleteMany()
+    await prisma.postCount.deleteMany()
+    return 1
 }

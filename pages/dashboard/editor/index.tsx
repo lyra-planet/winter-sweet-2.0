@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../../../components/DashBoard/layout'
 import dynamic from "next/dynamic";
+import { useRouter } from 'next/router';
 const Editor = dynamic(()=>import('../../../components/DashBoard/Editor'),{ssr:false})
-const index = ({ children }: { children: React.ReactNode }) => {
+const index = () => {
+  const router = useRouter()
+  const [post,setPost] = useState({})
+  useEffect(()=>{
+  if(router.query.id){
+    fetch("/api/post/getPostById",{method:"POST",body:router.query.id as string})
+    .then(res=>res.json())
+    .then(data=>{
+      setPost(data)
+    })
+  }
+  },[router])
   return (
-    <div className=' h-full'>
-    <Editor/>
-    <div>{children}</div>
+    <div className='h-full'>
+    <section>
+
+    </section>
+    <Editor post={post}/>
     </div>
   )
 }

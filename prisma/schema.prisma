@@ -23,9 +23,10 @@ model Author {
   refreshToken RefreshToken[]
 
   // Post
-  posts Post[]
+  posts Post[] @relation("post")
 
-  selections Selection[]
+
+  selections Post[] @relation("selection")
 
   ads Ad[]
 
@@ -52,8 +53,13 @@ model Post {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  author   Author?  @relation(fields: [authorId], references: [id])
+
+
+  author   Author?  @relation("post",fields: [authorId], references: [id])
   authorId String? @db.ObjectId
+
+  status Int
+
   postData String
   count Int
   tags String[]
@@ -61,9 +67,10 @@ model Post {
   title String
   comments Comment[] @relation("comments")
 
-  selectionTo  Selection?  @relation("selection", fields: [selectionToId], references: [id])
+  selectionTo  Author?  @relation("selection", fields: [selectionToId], references: [id])
   selectionToId String? @db.ObjectId
 }
+
 model PostCount{
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   count Int
@@ -84,18 +91,6 @@ model Comment {
   replyToId String? @db.ObjectId
 
   linkTo String? 
-}
-
-model Selection {
-  id   String @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-
-  authorId String @db.ObjectId
-  author  Author  @relation(fields: [authorId], references: [id])
-
-  post Post[] @relation("selection")
 }
 
 model Ad{

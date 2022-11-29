@@ -1,16 +1,39 @@
 import prisma from '../prisma';
-export const createPost = async(post)=>{
+export const createPost = async(post,status=1)=>{
     const count =  await getCount()
+    
     const postData = {
         ...post,
         authorId:`${post.authorId}`,
-        count:count
+        count:count,
+        status:status
     }
+    console.log(postData)
     const result = await prisma.post.create({
         data:postData
     })
+    
     return result
 }
+export const updatePost = async(before,after,status=1)=>{
+    console.log(before,after)
+    const postData = {
+        ...after,
+        authorId:before.authorId,
+        count:before.count,
+        status:status
+    }
+    
+    const result = await prisma.post.update({
+        where:{
+            id:before.id
+        },
+        data:postData
+    })
+    
+    return result
+}
+
 export const deletePosts = ()=>{
     return prisma.post.deleteMany()
 }
