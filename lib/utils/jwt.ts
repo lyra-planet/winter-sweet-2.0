@@ -11,7 +11,7 @@ const generateAccessToken = (author: { id: string }) => {
 const generateRefreshToken = (author: { id: string }) => {
     const jwtRefreshSecret = process.env.JWT_REFRESH_TOKEN_SECRET
     return jwt.sign({ authorId: author.id },jwtRefreshSecret, {
-        expiresIn: '4h'
+        expiresIn: '24h'
     })
 }
 
@@ -49,9 +49,10 @@ export const sendRefreshToken = (res: NextApiResponse<any>, token: string) => {
     if(token!==null){
         setCookie(res, "refresh_token", token, {
             sameSite: true,
-            maxAge:7*3600*24,
+            maxAge:3600*24,
             httpOnly: true,
             path: '/',
         })
     }
 } 
+

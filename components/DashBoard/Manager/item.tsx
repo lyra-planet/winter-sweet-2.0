@@ -13,7 +13,9 @@ const item = ({post,active}) => {
       </div>
       <p className='w-[10%]  flex justify-center'>{post.count}</p>
       <p className='w-[20%] flex justify-center'>{post.title}</p>
-      <p className='w-[30%] flex justify-center'>{post.tags.join(' ')}</p>
+      <div className='w-[30%] flex justify-center space-x-2'>{post.tags.map(tag=><p>
+        <span className='text-red-500'> #</span><span>{tag}</span>
+      </p>)}</div>
       <p className='w-[30%] flex justify-center'>{post.createdAt}</p>
       </div>
   )

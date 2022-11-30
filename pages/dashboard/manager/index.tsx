@@ -37,7 +37,7 @@ const index = () => {
     )
   }
   return (
-    <section className='py-8 px-10 space-y-10 h-full w-full justify-center'>
+    <section className='flex items-center flex-col py-8 px-5 md:px-10 space-y-10 h-full w-full justify-center'>
         <section className='h-[5%]'>
             <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
             <p>Lyra.Planet</p>
