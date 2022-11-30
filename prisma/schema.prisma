@@ -60,6 +60,8 @@ model Post {
 
   status Int
 
+  selected Int
+
   postData String
   count Int
   tags String[]
@@ -99,7 +101,12 @@ model Ad{
   updatedAt DateTime @updatedAt
   authorId String @db.ObjectId
   author  Author  @relation(fields: [authorId], references: [id])
+
+  name String
   link String
+  description String
+
+  status Int
 }
 
 model LabGadget{
@@ -113,6 +120,8 @@ model LabGadget{
   picture String
   description String
   link String
+
+  status Int
 }
 
 model Friend{
@@ -127,4 +136,6 @@ model Friend{
   picture String
   description String
   link String
+
+  status Int
 }

@@ -12,6 +12,7 @@ import Modal from '../../Modal'
   const index = ({post=false}:{post:any}) => {
     const [value, setValue] = useState('')
     const [status,setStatus] = useState(1)
+    const [selected,setSelected] = useState(0)
     const [modal,setModal] = useState(0)
     useEffect(()=>{
     const format = !post.title? `---
@@ -46,12 +47,16 @@ if(typeof post.status === 'number'){
   console.log(post.status)
   setStatus(post.status)
 }
+console.log(post)
+if(typeof post.selected === 'number'){
+  console.log(post.selected)
+  setSelected(post.selected)
+}
     },[post])
-  
     const uploadPost = async()=>{
       const data = await fetch("/api/post/uploadPost",{
         method:"POST",
-        body:JSON.stringify({before:post,after:value,status:status})
+        body:JSON.stringify({before:post,after:value,status:status,selected:selected})
       }).then(res=>res.json())
       console.log(data)
       if(data.status==="succeed"){
@@ -74,7 +79,7 @@ if(typeof post.status === 'number'){
               <Spin className="w-10 h-10 animate-spin text-neutral-600"/>Loading....
               </div>
             }>
-              <div className='h-[86vh]'>
+              <div className='h-[86vh] md:flex-grow'>
               <MDEditor className=' h-full
             max-w-none prose prose-neutral
             prose-hr:m-0 
@@ -87,8 +92,8 @@ if(typeof post.status === 'number'){
           />
               </div>
             </Suspense>
-           <div className='flex flex-grow flex-row w-full justify-between items-center'>
-            <div className='h-full space-x-1'>
+           <div className='flex flex-row w-full justify-between items-center'>
+            <div className='h-full flex flex-row space-x-1'>
               <button 
               onClick={()=>setStatus(1)}
               className={`w-20 p-1 h-full cursor-pointer ${status===1 ? " bg-green-500 text-white font-semibold":" bg-neutral-200 text-black hover:bg-neutral-300"}`}>
@@ -103,6 +108,11 @@ if(typeof post.status === 'number'){
               onClick={()=>setStatus(0)}
               className={`p-1 w-20 h-full  border-r cursor-pointer ${status===0 ? " bg-blue-500 text-white font-semibold":" bg-neutral-200 text-black hover:bg-neutral-300"}`}>
                Delete
+              </button>
+              <button 
+              onClick={()=>setSelected(i=>(i===0?1:0))}
+              className={`p-1 w-20 h-full  border-r cursor-pointer ${selected===1 ? "  bg-red-500 text-white font-serif font-semibold":" bg-neutral-200 text-black hover:bg-neutral-300"}`}>
+               Select
               </button>
             </div>
             <button 

@@ -11,10 +11,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
       const author = await authCheck(req,res) as Author
-      const {before,after,status} = JSON.parse(req.body)
-      console.log(after,before)
+      const {before,after,status,selected} = JSON.parse(req.body)
       const post = matterPost(after)
-      
       if(post){
         if(before.title){
           await updatePost(before,{
@@ -23,7 +21,7 @@ export default async function handler(
               title: post.title,
               tags: post.tags,
               excerpt: post.excerpt,
-          },status)
+          },status,selected)
         }else{
           await incCount()
           await createPost({
@@ -32,7 +30,7 @@ export default async function handler(
               title: post.title,
               tags: post.tags,
               excerpt: post.excerpt,
-          },status)
+          },status,selected)
         }
         
       }

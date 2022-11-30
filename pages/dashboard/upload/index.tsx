@@ -29,10 +29,10 @@ const index = () => {
     }
   }
   return (
-  <section className='flex flex-col py-8 px-5 md:px-10 space-y-10 h-full w-full items-center justify-center'>
+  <section className='flex flex-col px-5 md:px-10 space-y-5 h-full w-full justify-center'>
       <Modal active={modal} type={1}>上传成功</Modal>
     <section className='h-[5%]'>
-        <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
+        <h1 className="flex items-center space-x-2 text-xl md:text-3xl font-bold font-serif">
         <p>Lyra.Planet</p>
         <p className="w-2 h-2 bg-red-500"></p>
         <p>文章上传</p>

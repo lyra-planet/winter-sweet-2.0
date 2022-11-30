@@ -1,12 +1,13 @@
 import prisma from '../prisma';
-export const createPost = async(post,status=1)=>{
+export const createPost = async(post,status=1,selected=0)=>{
     const count =  await getCount()
     
     const postData = {
         ...post,
         authorId:`${post.authorId}`,
         count:count,
-        status:status
+        status:status,
+        selected:selected
     }
     console.log(postData)
     const result = await prisma.post.create({
@@ -15,15 +16,15 @@ export const createPost = async(post,status=1)=>{
     
     return result
 }
-export const updatePost = async(before,after,status=1)=>{
+export const updatePost = async(before,after,status=1,selected=0)=>{
     console.log(before,after)
     const postData = {
         ...after,
         authorId:before.authorId,
         count:before.count,
-        status:status
+        status:status,
+        selected:selected
     }
-    
     const result = await prisma.post.update({
         where:{
             id:before.id

@@ -15,7 +15,7 @@ export function getPostSlugs() {
 
 
 /*=============================================
-=            Fs            =
+ =            Fs            =
 =============================================*/
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, "");
@@ -93,7 +93,40 @@ export const getPostByTag = (tags:string[],title:string, fields: string[] = [])=
       orderBy: { createdAt: "desc" },
     })
 }
-
+export const getSelection = async (fields: string[] = [])=>{
+  const data = await prisma.post.findMany({
+    where:{
+      OR:[
+        {
+          selected:1
+        }
+      ],NOT:[{
+        status:0
+      },
+      {
+        status:-1
+      }
+      ]
+    },
+    take: 4,
+    select: {
+      id: true,
+      count:true,
+      authorId: fields.indexOf("authorId") !== -1,
+      postData: fields.indexOf("postData") !== -1,
+      title: fields.indexOf("title") !== -1,
+      tags: fields.indexOf("tags") !== -1,
+      excerpt: fields.indexOf("excerpt") !== -1,
+      createdAt: true,
+    },
+    orderBy: { createdAt: "desc" },
+  })
+  return await Promise.all(data.map(async (post) => ({
+    ...post,
+    authorName: await getAuthorById(post.authorId),
+    excerpt: await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))) ,
+  })))
+}
 
 
 
@@ -137,6 +170,7 @@ export const getPost = (id: string, fields: string[] = []) => {
       tags: fields.indexOf("tags") !== -1,
       excerpt: fields.indexOf("excerpt") !== -1,
       comments: fields.indexOf("comments") !== -1,
+      selected:true,
       status:true,
       count:true,
       createdAt: true,
@@ -172,6 +206,7 @@ export const getAllTags= async () => {
   );
   return posts
 };
+
 /*=====  End of GetPost  ======*/
 
 

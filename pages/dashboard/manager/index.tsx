@@ -8,7 +8,7 @@ import { Spin } from '../../../assets'
 const index = () => {
   const posts = usePosts()
   const [active,setActive] = useState(-1)
-
+  console.log(posts)
   const Table = ({posts})=>{
     return (
       <section className='min-w-[55rem] '>
@@ -26,7 +26,7 @@ const index = () => {
   
   {
     posts?
-    posts.map((post,index)=><Link href={`/dashboard/editor?id=${post.id}`} key={post.id} onClick={() => setActive(index)} >
+    posts?.map((post,index)=><Link href={`/dashboard/editor?id=${post.id}`} key={post.id} onClick={() => setActive(index)} >
       <Item post={post} active={active===index}/>
     </Link> ):<div className='w-full flex flex-row justify-center items-center'>
     <Spin className="w-10 h-10 animate-spin"/>Loading....
@@ -37,9 +37,9 @@ const index = () => {
     )
   }
   return (
-    <section className='flex items-center flex-col py-8 px-5 md:px-10 space-y-10 h-full w-full justify-center'>
+    <section className='flex flex-col py-8 px-5 md:px-10 space-y-5 h-full w-full justify-center'>
         <section className='h-[5%]'>
-            <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
+            <h1 className="flex items-center space-x-2 text-xl md:text-3xl font-bold font-serif">
             <p>Lyra.Planet</p>
             <p className="w-2 h-2 bg-red-500"></p>
             <p>文章管理</p>

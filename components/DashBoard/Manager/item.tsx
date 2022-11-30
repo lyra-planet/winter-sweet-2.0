@@ -1,8 +1,9 @@
 import React from 'react'
 
 const item = ({post,active}) => {
+  console.log(post)
   return (
-    <div className={`cursor-pointer border-b p-1 flex items-center ${active?" bg-red-500 rounded-sm text-white":"hover:bg-neutral-100"}  transition duration-150`}>
+    <div className={`cursor-pointer border-b p-1 flex items-center ${post.selected?" bg-red-500 border text-white  font-semibold rounded-sm ":"hover:bg-neutral-100"}  transition duration-150`}>
       <div className='w-[10%] flex justify-center'>
       <p className={` inline-block p-1 rounded-md text-white font-semibold ${
         post.status===1 ? "bg-green-500": post.status===0  ? "bg-blue-500" : post.status === -1 ? " bg-yellow-500" : "bg-red-500"
