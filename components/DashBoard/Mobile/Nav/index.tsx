@@ -1,5 +1,5 @@
 import { StarIcon, ArchiveBoxIcon, SwatchIcon, BookmarkIcon, CodeBracketIcon, ChatBubbleLeftEllipsisIcon, HeartIcon, TruckIcon } from "@heroicons/react/24/outline";
-import { ArrowRight, Email, Fun, Github, Netease, QQ, Telegram, Terminal } from "../../../../assets";
+import { Archive, ArrowRight, Edit, Email, Fun, Github, Home, Netease, QQ, Setting, Telegram, Terminal, Upload } from "../../../../assets";
 import NavItem from "./navItem";
 import FooterItem from "./footerItem";
 import config from "../../../../config";
@@ -19,12 +19,11 @@ const index = () => {
         </button>
       </section>
       <section>
-      <NavItem link="/dashboard"><StarIcon className="h-5 mr-2"/>控制台 Dashboard</NavItem>  
-      <NavItem link="/dashboard/editor">< BookmarkIcon className="h-5 mr-2"/>文章编辑 Editor</NavItem>
-      <NavItem link="/dashboard/manager"><ArchiveBoxIcon className="h-5 mr-2"/>文章管理 Manager</NavItem>
-      <NavItem  link="/dashboard/upload"><CodeBracketIcon className="h-5 mr-2"/>文章上传 Upload</NavItem>
-      <NavItem link="/dashboard/other"><ChatBubbleLeftEllipsisIcon className="h-5 mr-2"/>其他 Other</NavItem>
-      <NavItem  link="/"><HeartIcon className="h-5 mr-2"/>主页 Home</NavItem>
+      <NavItem link="/dashboard"><Archive className="h-5 mr-2"/>文章管理 Manager</NavItem>
+      <NavItem link="/dashboard/editor"><Edit className="h-5 mr-2"/>文章编辑 Editor</NavItem>
+      <NavItem  link="/dashboard/upload"><Upload className="h-5 mr-2"/>文章上传 Upload</NavItem>
+      <NavItem link="/dashboard/other"><Setting className="h-5 mr-2"/>其他 Other</NavItem>
+      <NavItem  link="/"><Home className="h-5 mr-2"/>主页 Home</NavItem>
       </section>
 
       <section className="flex justify-between">

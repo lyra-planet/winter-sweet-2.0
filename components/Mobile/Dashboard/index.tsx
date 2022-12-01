@@ -5,18 +5,30 @@ import AuthForm from '../../../components/Auth/Form'
 import FooterItem from "./footerItem";
 import { useState } from "react";
 import config from "../../../config";
+import { useStore } from "../../../store";
+import Link from "next/link";
 const index = () => {
   const [active,setActive] = useState(false)
-
+  const store = useStore()
   return (
     <div className="text-white px-10 pt-5 pb-20 space-y-14 h-full scrollbar scrollbar-none">
       <section className="flex">
+        <section className={`${store.author.authorInfo.name?'hidden':''}`}>
         <button className="px-3 pt-1 pb-3 flex 
         items-center font-semibold bg-white text-red-500
         hover:scale-105 duration-150 transition
         " onClick={()=>setActive(active=>!active)}>
         登录<ArrowRight className="w-4"/>
         </button>
+        </section>
+        <section className={`${store.author.authorInfo.name?'':'hidden'}`}>
+        <Link href={"/dashboard"}
+    className='px-3 pt-1 pb-3 flex 
+    items-center font-semibold bg-white text-red-500
+    hover:scale-105 duration-150 transition'>
+   控制台 
+        </Link>
+        </section>
         <section>
           <div className={`${active?"":"scale-0"} p-4 opacity-90 bg-neutral-800 right-0 absolute overflow-hidden transition-all duration-150`}>
           <AuthForm active={active}/>
@@ -32,12 +44,7 @@ const index = () => {
       <NavItem  link="/friends"><HeartIcon className="h-5 mr-2"/>我的好友 Friend</NavItem>
       <NavItem link={config.links.friendLink}>< TruckIcon className="h-5 mr-2"/>友链 Traveling</NavItem>
       </section>
-      <section>
-        <div className="w-full h-8 flex justify-between border-white border-[1px]">
-        <input type="text" className="p-2 w-5/6 flex-grow border-none outline-none text-red-500" />
-        <button className="bg-white text-red-500 whitespace-nowrap px-5">搜索</button>
-        </div>
-      </section>
+
       <section className="flex justify-between">
         <section className="w-1/2">
             <h1 className="opacity-50 text-sm mb-1">•交流&探讨•</h1>

@@ -1,4 +1,4 @@
-import type { Comment } from '../interfaces'
+import type { Comment } from '../../interfaces'
 import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { useAuth0 } from '@auth0/auth0-react'

@@ -7,9 +7,9 @@ async function fetcher(url: string) {
     method:"GET"
   }).then((res) => res.json())
 }
-export default function useOther() {
+export default function usePosts() {
   const { data: posts, mutate } = useSWR<any>(
-    `/api/other/get`,
+    `/api/dash/post`,
     fetcher,
     { fallbackData: false,suspense:false }
   )

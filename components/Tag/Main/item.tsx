@@ -4,7 +4,7 @@ import { formatDay } from '../../../lib/dateRelative'
 
 const item = ({post}) => {
   return (
-    <article className="flex flex-row space-x-2 ">
+    <article className="flex flex-row space-x-2 hover:bg-neutral-100 cursor-pointer ">
     <section >
         <div className="font-serif font-bold 
         lg:text-sm

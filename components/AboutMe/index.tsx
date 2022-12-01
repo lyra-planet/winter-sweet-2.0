@@ -1,5 +1,5 @@
 import React from 'react'
-import useAboutMe from '../../hooks/useAboutMe'
+import useAboutMe from '../../hooks/front/useAboutMe'
 import Comment from '../Comment'
 import Loading from './loading'
 

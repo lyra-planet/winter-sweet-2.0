@@ -25,13 +25,13 @@ const index = ({ post,relativePosts }) => {
   },[postId])
   return (
     <>
-      <section className="w-1/5 hidden md:block overflow-auto scrollbar-none">
+      <section className="w-1/5 h-full hidden md:block overflow-auto scrollbar-none">
         <PostLeftSideBar>
         <LeftSideBar />
-          <Toc/>
+        <Toc/>
         </PostLeftSideBar>
       </section>
-      <section ref={mainRef} className="w-full md:w-4/5 flex flex-col overflow-auto scrollbar-none">
+      <section ref={mainRef} id="scroll-con" className="w-full md:w-4/5 flex flex-col overflow-auto scrollbar-none">
         <div className="flex flex-col justify-center
         xl:flex-row px-2 md:px-6 flex-grow xl:space-x-6">
           {/* article */}

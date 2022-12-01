@@ -3,23 +3,16 @@
 @tailwind utilities;
 
 
-.bitoc-ml-1,
-.bitoc-ml-2,
-.bitoc-ml-3,
-.bitoc-ml-4,
-.bitoc-ml-5,
-.bitoc-ml-6{
+.toc-list-item{
     line-height: 1.5rem;
+    font-size: 1rem;
 }
-
-.bitoc-ml-1.active,.bitoc-ml-1:hover,
-.bitoc-ml-2.active,.bitoc-ml-2:hover,
-.bitoc-ml-3.active,.bitoc-ml-3:hover,
-.bitoc-ml-4.active,.bitoc-ml-4:hover,
-.bitoc-ml-5.active,.bitoc-ml-5:hover,
-.bitoc-ml-6.active,.bitoc-ml-6:hover{
+.toc-link.is-active-link,.toc-link:hover{
     color: rgb(239 68 68) !important;
     font-weight: 600;
+}
+.is-active-link::before{
+    background:transparent !important;
 }
 textarea.w-md-editor-text-input,.wmde-markdown-color {
     color:black !important;

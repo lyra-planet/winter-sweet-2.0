@@ -1,7 +1,7 @@
 import {blogListTimeLine} from "../../../lib/timeLineFormat";
 import Loading from "./loading"
 import Item from "./item";
-import useAllFriend from "../../../hooks/useAllFriend";
+import useAllFriend from "../../../hooks/front/useAllFriend";
 const index = () => {
   const friends = useAllFriend()
   return (

@@ -2,7 +2,7 @@ import { ArrowSmallRightIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import React from 'react'
 import { ArrowRight } from '../../assets'
-import useBlogList from '../../hooks/useBlogList'
+import useBlogList from '../../hooks/front/useBlogList'
 import Item from './item'
 import { SkeletonCard } from './skeletonCard'
 

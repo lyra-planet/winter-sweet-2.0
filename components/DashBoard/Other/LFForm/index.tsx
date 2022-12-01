@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Modal from '../../../Modal'
 
 export default function AdForm({
   onSubmit,type,data
@@ -10,14 +11,31 @@ export default function AdForm({
 
     const [status,setStatus] = useState(1)
 
+    const [modal,setModal] = useState({
+      active:0,text:"",type:1
+    })
+    const restModal = ()=>{
+      setTimeout(()=>{
+        setModal({...modal,
+          active:0
+      })
+      },3000)
+    }
+    const isUrl = (str) => {
+      let v = new RegExp('^(?!mailto:)(?:(?:http|https|ftp)://|//)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$', 'i');
+            return v.test(str);
+       }
     const handleSubmit = (e)=>{
         e.preventDefault()
+        if(!isUrl(picture)){
+          setModal({...modal,active:1,text:"链接格式错误",type:0})
+          restModal()
+          return
+        }
         const pack = {name, picture, description,link,status,before:data}
         onSubmit(pack,type)
     }
-
     useEffect(()=>{
-      console.log(data)
       if(data.name){
         setName(data.name)
         setPicture(data.picture)
@@ -25,9 +43,9 @@ export default function AdForm({
         setLink(data.link)
       }
     },[data])
-
   return (
     <div className='w-full space-y-2'>
+    <Modal type={modal.type} active={modal.active} text={modal.text}/>
     <input 
             className="flex w-full  p-1 px-3  resize-y text-neutral-500 outline-none border-[1px] placeholder-neutral-300"
     type="text" placeholder='名字' 
@@ -77,7 +95,6 @@ export default function AdForm({
             上传
         </button>
       </div>
-
     </div>
   )
 }

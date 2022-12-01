@@ -1,7 +1,7 @@
 import {blogListTimeLine} from "../../../lib/timeLineFormat";
 import Loading from "./loading"
 import Item from "./item";
-import useAllLabGadget from "../../../hooks/useAllLabGadget";
+import useAllLabGadget from "../../../hooks/front/useAllLabGadget";
 const index = () => {
   const labGadgets = useAllLabGadget()
   return (

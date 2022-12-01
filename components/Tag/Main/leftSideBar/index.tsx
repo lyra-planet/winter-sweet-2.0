@@ -23,7 +23,7 @@ const leftSideBar = ({tags,active,setPosts}) => {
                     return (
                         <li key={tag}
                         onClick={()=>setPosts(index)}
-                        className=" cursor-pointer border-b border-dotted flex flex-row space-x-1 hover group">
+                        className=" cursor-pointer border-b border-dotted flex flex-row space-x-1 hover group hover:bg-neutral-100 ">
                             <p className="text-red-500">#</p>
                             <p className={`${active===index? "text-red-500":"text-neutral-800"} group-hover:text-red-500 duration-150`}>{tag}</p>
                         </li>

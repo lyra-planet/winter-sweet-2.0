@@ -4,15 +4,19 @@ import React from 'react'
 import { formatDay } from '../../../lib/dateRelative'
 
 const item = ({post}) => {
+  const isUrl = (str) => {
+    let v = new RegExp('^(?!mailto:)(?:(?:http|https|ftp)://|//)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$', 'i');
+          return v.test(str);
+    }
   return (
     <Link href={post.link} className="w-full p-1 space-y-1">
     <article key={post.id} className="flex flex-col justify-center mb-10">
-        <Image 
+        {isUrl(post.picture)&&<Image 
         className=' shadow-lg'
         src={post.picture} 
         width={700}
         height={700}
-        alt="Picture of the Guadget"/>
+        alt="Picture of the Guadget"/>}
         <section className="border-b w-full flex flex-col justify-between pb-2 space-y-2">
       <section className='flex flex-row justify-between'>
       <p className="
@@ -33,7 +37,7 @@ const item = ({post}) => {
         {post.description}
     </div>
     </section>
-  </article>
+    </article>
   </Link>
   )
 }

@@ -13,7 +13,16 @@ import Modal from '../../Modal'
     const [value, setValue] = useState('')
     const [status,setStatus] = useState(1)
     const [selected,setSelected] = useState(0)
-    const [modal,setModal] = useState(0)
+    const [modal,setModal] = useState({
+      active:0,text:"",type:1
+    })
+    const restModal = ()=>{
+      setTimeout(()=>{
+      setModal({...modal,
+          active:0
+      })
+      },1500)
+    }
     useEffect(()=>{
     const format = !post.title? `---
 
@@ -47,28 +56,26 @@ if(typeof post.status === 'number'){
   console.log(post.status)
   setStatus(post.status)
 }
-console.log(post)
 if(typeof post.selected === 'number'){
   console.log(post.selected)
   setSelected(post.selected)
 }
     },[post])
     const uploadPost = async()=>{
+      setModal({active:1,text:"上传中",type:2})
       const data = await fetch("/api/post/uploadPost",{
         method:"POST",
         body:JSON.stringify({before:post,after:value,status:status,selected:selected})
       }).then(res=>res.json())
       console.log(data)
       if(data.status==="succeed"){
-        setModal(1)
-        setTimeout(()=>{
-          setModal(0)
-        },3000)
+        setModal({active:1,text:"上传成功",type:1})
+        restModal()
       }
     }
     return (
         <main className='flex h-full  w-full'>
-        <Modal active={modal} type={1}>上传成功</Modal>
+      <Modal active={modal.active} text={modal.text} type={modal.type} />
           <div className='w-full h-full flex flex-col '>
             <Suspense fallback={
               <div className='h-full bg-neutral-100 flex items-center justify-center

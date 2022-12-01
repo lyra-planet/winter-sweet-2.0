@@ -12,7 +12,8 @@ export const getAllFriend = async () => {
 export const getAllAd = async () => {
   return prisma.ad.findMany({orderBy: { createdAt: "desc" } });
 };
-export const getAd = async () => {
+
+export const getFrontAds = async () => {
   return prisma.ad.findMany({
     where:{NOT:[{
       status:0
@@ -21,3 +22,23 @@ export const getAd = async () => {
     }]},
     take:1,orderBy: { createdAt: "desc" } });
 };
+export const getFrontLabGadgets = async () => {
+  return prisma.labGadget.findMany({
+    where:{NOT:[{
+      status:0
+    },{
+      status:-1
+    }]},
+    orderBy: { createdAt: "desc" } });
+};
+export const getFrontFriends = async () => {
+  return prisma.friend.findMany({
+    where:{NOT:[{
+      status:0
+    },{
+      status:-1
+    }]},
+    orderBy: { createdAt: "desc" } });
+};
+
+

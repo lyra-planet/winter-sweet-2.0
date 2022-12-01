@@ -1,6 +1,6 @@
 import CommentForm from './form'
 import CommentList from './list'
-import useComments from '../../hooks/useComment'
+import useComments from '../../hooks/front/useComment'
 import Loading from './loading'
 
 export default function Comment({postId,linkTo}) {

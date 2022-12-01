@@ -3,7 +3,7 @@ import Main from "../../components/Tag/Main";
 import Layout from "../../components/layout"
 import LeftSideBar from "../../components/Tag/Main/leftSideBar";
 import { useState } from "react";
-import useAllTag from "../../hooks/useAllTag";
+import useAllTag from "../../hooks/front/useAllTag";
 import Loading from "../../components/Tag/Main/loading";
 
 const index = () => {

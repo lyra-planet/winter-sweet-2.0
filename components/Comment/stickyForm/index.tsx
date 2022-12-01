@@ -1,5 +1,5 @@
 import { Suspense, useState } from "react"
-import useComments from "../../../hooks/useComment"
+import useComments from "../../../hooks/front/useComment"
 import Loading from "./loading"
 import CommentForm from "./form"
 import CommentList from "./list"

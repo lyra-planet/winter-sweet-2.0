@@ -1,13 +1,12 @@
 import LeftSideBar from "../../../LeftSideBar";
 import { Toc } from "../../../../assets";
 import { useState } from "react";
-
 const index = ({ children }) => {
   const [change, setChange] = useState(false);
   const [left, right] = children;
   return (
     <div className="border-r h-full">
-      <div className="bg-red-500 z-10 fixed right-8 bottom-1/4 p-1">
+      <div className="bg-red-500 z-10 fixed right-8 bottom-1/4 pt-1">
         <button onClick={() => setChange((change) => !change)}>
           <div className="w-11 h-11 flex justify-center items-center">
             <Toc className="w-10 h-10 text-white" />
@@ -20,10 +19,10 @@ const index = ({ children }) => {
         z-10
         w-full
         h-screen
-        flex flex-col items-center py-10
+        flex flex-col items-center 
         translate-x-[-100%]
         bg-white
-        group-[.showNav]/sideBar:translate-x-0
+        group-[.showNav]/sideBar:translate-x-0 py-6
         transition duration-150"
         >
         {left}

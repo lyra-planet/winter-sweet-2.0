@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {blogListTimeLine} from "../../../lib/timeLineFormat";
 import {  formatDay } from '../../../lib/dateRelative';
-import useAllPost from "../../../hooks/useAllPost";
+import useAllPost from "../../../hooks/front/useAllPost";
 import Loading from "./loading"
 const index = () => {
   const posts = useAllPost()
