@@ -9,20 +9,11 @@ const Toc = ()=>{
     useEffect(() => {
       console.log(1)
       tocbot.init({
-        // Where to render the table of contents.
         tocSelector: '#post-toc',
-        // Where to grab the headings to build the table of contents.
         contentSelector: '#post-content',
         scrollContainer: '#scroll-con',
-        // Which headings to grab inside of the contentSelector element.
         headingSelector: 'h1, h2, h3',
         collapseDepth: 0,
-        // Smooth scrolling enabled.
-        scrollSmooth: true,
-        // Smooth scroll duration.
-        scrollSmoothDuration: 420,
-        // Smooth scroll offset.
-        scrollSmoothOffset: 200,
         disableTocScrollSync:true
       });
       }, [postId]);
