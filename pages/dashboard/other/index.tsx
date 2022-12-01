@@ -28,7 +28,7 @@ const index = () => {
 
   const onSubmit = async(pack,type)=>{
     setModal({active:1,text:"上传中",type:2})
-    const data = await fetch(`/api/other/${type}`,{
+    const data = await fetch(`/api/dash/other/${type}`,{
         method:"POST",
         body:JSON.stringify(pack)
       }).then(res=>res.json())

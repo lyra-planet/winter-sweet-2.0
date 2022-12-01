@@ -4,12 +4,12 @@ import useSWR from 'swr'
 async function fetcher(url: string) {
   const queryUrl = url
   return fetch(queryUrl,{
-    method:"GET",body:JSON.stringify({status:0})
+    method:"GET"
   }).then((res) => res.json())
 }
 export default function useAllLabGadget() {
   const { data: labGadget, mutate } = useSWR<any>(
-    `/api/other/labGadget`,
+    `/api/front/other/labGadget`,
     fetcher,
     { fallbackData: false,suspense:false }
   )
