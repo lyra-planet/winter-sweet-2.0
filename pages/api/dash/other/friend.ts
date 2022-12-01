@@ -39,6 +39,7 @@ const create = async(req,res)=>{
 }
 const get = async(req,res)=>{
     const items = await getAllFriend()
+
     return res.status(200).json(items)
 }
 
