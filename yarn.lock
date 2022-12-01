@@ -1185,13 +1185,6 @@ csstype@^3.0.2:
   resolved "https://registry.npmmirror.com/csstype/-/csstype-3.1.1.tgz#841b532c45c758ee546a11d5bd7b7b473c8c30b9"
   integrity sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==
 
-data-fns@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.npmmirror.com/data-fns/-/data-fns-0.1.8.tgz#bfd171aabcd7cbdbb946d55f50ed2c5744b3b714"
-  integrity sha512-3aC+mM92aUWsTx3lYD9el6RUZqaQceQeUw16de/cb9gyjp/CJ3yekYtsxQOYQoPAM2+kgfp1Km6zkzh5Q4+EYA==
-  dependencies:
-    unit-fns "^0.1.6"
-
 date-fns@^2.29.3:
   version "2.29.3"
   resolved "https://registry.npmmirror.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
@@ -1791,13 +1784,6 @@ hast-util-raw@^7.2.0:
     web-namespaces "^2.0.0"
     zwitch "^2.0.0"
 
-hast-util-sanitize@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmmirror.com/hast-util-sanitize/-/hast-util-sanitize-4.0.0.tgz#71a02ca2e50d04b852a5500846418070ca364f60"
-  integrity sha512-pw56+69jq+QSr/coADNvWTmBPDy+XsmwaF5KnUys4/wM1jt/fZdl7GPxhXXXYdXnz3Gj3qMkbUCH2uKjvX0MgQ==
-  dependencies:
-    "@types/hast" "^2.0.0"
-
 hast-util-select@~5.0.1:
   version "5.0.2"
   resolved "https://registry.npmmirror.com/hast-util-select/-/hast-util-select-5.0.2.tgz#8c603ebacf0f47e154c5fa2e5b7efc520813866b"
@@ -2287,7 +2273,7 @@ mdast-util-gfm@^2.0.0:
     mdast-util-gfm-task-list-item "^1.0.0"
     mdast-util-to-markdown "^1.0.0"
 
-mdast-util-to-hast@^12.0.0, mdast-util-to-hast@^12.1.0:
+mdast-util-to-hast@^12.1.0:
   version "12.2.4"
   resolved "https://registry.npmmirror.com/mdast-util-to-hast/-/mdast-util-to-hast-12.2.4.tgz#34c1ef2b6cf01c27b3e3504e2c977c76f722e7e1"
   integrity sha512-a21xoxSef1l8VhHxS1Dnyioz6grrJkoaCUgGzMD/7dWHvboYX3VW53esRUfB5tgTyz4Yos1n25SPcj35dJqmAg==
@@ -3246,7 +3232,7 @@ rehype-stringify@^9.0.0, rehype-stringify@^9.0.3:
     hast-util-to-html "^8.0.0"
     unified "^10.0.0"
 
-rehype@^12.0.1, rehype@~12.0.1:
+rehype@~12.0.1:
   version "12.0.1"
   resolved "https://registry.npmmirror.com/rehype/-/rehype-12.0.1.tgz#68a317662576dcaa2565a3952e149d6900096bf6"
   integrity sha512-ey6kAqwLM3X6QnMDILJthGvG1m1ULROS9NT4uG9IDCuv08SFyLlreSuvOa//DgEvbXx62DS6elGVqusWhRUbgw==
@@ -3266,17 +3252,6 @@ remark-gfm@~3.0.1:
     micromark-extension-gfm "^2.0.0"
     unified "^10.0.0"
 
-remark-html@^15.0.1:
-  version "15.0.1"
-  resolved "https://registry.npmmirror.com/remark-html/-/remark-html-15.0.1.tgz#199cc78656d857834de0304c4b54a773f3272078"
-  integrity sha512-7ta5UPRqj8nP0GhGMYUAghZ/DRno7dgq7alcW90A7+9pgJsXzGJlFgwF8HOP1b1tMgT3WwbeANN+CaTimMfyNQ==
-  dependencies:
-    "@types/mdast" "^3.0.0"
-    hast-util-sanitize "^4.0.0"
-    hast-util-to-html "^8.0.0"
-    mdast-util-to-hast "^12.0.0"
-    unified "^10.0.0"
-
 remark-parse@^10.0.0, remark-parse@^10.0.1:
   version "10.0.1"
   resolved "https://registry.npmmirror.com/remark-parse/-/remark-parse-10.0.1.tgz#6f60ae53edbf0cf38ea223fe643db64d112e0775"
@@ -3294,25 +3269,6 @@ remark-rehype@^10.0.0, remark-rehype@^10.1.0:
     "@types/hast" "^2.0.0"
     "@types/mdast" "^3.0.0"
     mdast-util-to-hast "^12.1.0"
-    unified "^10.0.0"
-
-remark-stringify@^10.0.0:
-  version "10.0.2"
-  resolved "https://registry.npmmirror.com/remark-stringify/-/remark-stringify-10.0.2.tgz#50414a6983f5008eb9e72eed05f980582d1f69d7"
-  integrity sha512-6wV3pvbPvHkbNnWB0wdDvVFHOe1hBRAx1Q/5g/EpH4RppAII6J8Gnwe7VbHuXaoKIF6LAg6ExTel/+kNqSQ7lw==
-  dependencies:
-    "@types/mdast" "^3.0.0"
-    mdast-util-to-markdown "^1.0.0"
-    unified "^10.0.0"
-
-remark@^14.0.2:
-  version "14.0.2"
-  resolved "https://registry.npmmirror.com/remark/-/remark-14.0.2.tgz#4a1833f7441a5c29e44b37bb1843fb820797b40f"
-  integrity sha512-A3ARm2V4BgiRXaUo5K0dRvJ1lbogrbXnhkJRmD0yw092/Yl0kOCZt1k9ZeElEwkZsWGsMumz6qL5MfNJH9nOBA==
-  dependencies:
-    "@types/mdast" "^3.0.0"
-    remark-parse "^10.0.0"
-    remark-stringify "^10.0.0"
     unified "^10.0.0"
 
 require-from-string@^2.0.2:
@@ -3623,11 +3579,6 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-toc-helper@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npmmirror.com/toc-helper/-/toc-helper-2.1.1.tgz#8e25044d05dd96825f9d6f38a75718685572977c"
-  integrity sha512-NeRn4igBOWVGgm6jdhDzjWC97+/un3FqXMXl8/vLcn2zR8Q1nWmyjcmB7zZ0oOHSOTWWhCUtzGW+FsACvDjQPQ==
-
 tocbot@^4.19.0:
   version "4.19.0"
   resolved "https://registry.npmmirror.com/tocbot/-/tocbot-4.19.0.tgz#8b7433d63be9f52f8e9823641813bc1db7329df4"
@@ -3732,11 +3683,6 @@ unist-util-visit@^4.0.0, unist-util-visit@^4.1.0, unist-util-visit@~4.1.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^5.0.0"
     unist-util-visit-parents "^5.1.1"
-
-unit-fns@^0.1.6:
-  version "0.1.9"
-  resolved "https://registry.npmmirror.com/unit-fns/-/unit-fns-0.1.9.tgz#975f20a779cbd7a0ec9eeb3efde5c572534f7edb"
-  integrity sha512-bxceIkc7n2icQmgQx8u3vX98ZBIcpL2YJDKIsWDFK7ZX1TTuLvtNWVNd9/oARCDHd7QQRzwc+zxabO0HSK8X0w==
 
 update-browserslist-db@^1.0.9:
   version "1.0.10"

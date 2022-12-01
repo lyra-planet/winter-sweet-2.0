@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useLayoutEffect, useRef } from "react";
-import TocHelper from "toc-helper";
 import tocbot from "tocbot";
 import 'tocbot/static/css/tocbot.css'
 const Toc = ()=>{
