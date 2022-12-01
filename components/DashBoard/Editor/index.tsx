@@ -24,6 +24,7 @@ import Modal from '../../Modal'
       },1500)
     }
     useEffect(()=>{
+      console.log(post)
     const format = !post.title? `---
 
 title: Test
@@ -44,12 +45,8 @@ title: ${post?.title}
 tags: ${post?.tags?.join(' ')}
       
 ---
-${post?.excerpt[0]}
-<!-- mid -->
-${post?.excerpt[1]}
-<!-- end -->
-
-test`
+${post?.postData}
+`
 setValue(format)
 
 if(typeof post.status === 'number'){
