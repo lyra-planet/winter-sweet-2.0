@@ -28,11 +28,13 @@ export default function AdForm({
         onSubmit(pack,type)
     }
     useEffect(()=>{
-      console.log(data)
-      if(data.name){
-        setName(data.name)
-        setDescription(data.description)
-        setLink(data.link)
+      if(data){
+        if(data.name){
+          setName(data.name)
+          setDescription(data.description)
+          setLink(data.link)
+          setStatus(data.status)
+        }
       }
     },[data])
   return (

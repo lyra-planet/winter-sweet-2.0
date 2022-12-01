@@ -36,12 +36,16 @@ export default function AdForm({
         onSubmit(pack,type)
     }
     useEffect(()=>{
-      if(data.name){
-        setName(data.name)
-        setPicture(data.picture)
-        setDescription(data.description)
-        setLink(data.link)
+      if(data){
+        if(data.name){
+          setName(data.name)
+          setPicture(data.picture)
+          setDescription(data.description)
+          setLink(data.link)
+          setStatus(data.status)
+        }
       }
+
     },[data])
   return (
     <div className='w-full space-y-2'>
