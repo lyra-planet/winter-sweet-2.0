@@ -4,7 +4,7 @@ const loading = () => {
   return (
     <div
     className=' 
-     space-y-3
+     space-y-3 w-full
     relative overflow-hidden 
     before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_1.5s_infinite] before:bg-tran-gray-tran'
   >
