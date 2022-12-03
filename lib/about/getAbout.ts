@@ -8,13 +8,19 @@ import markdownToHtml from "../markdownToHtml";
 =============================================*/
 export const getAboutMeId = () => {
   return prisma.post.findMany({
-    where:{NOT:[{
+    where:{
+      AND:[
+       { title:{
+          contains:"关于我"
+        }}
+      ],
+      NOT:[{
       status:0
     },{
       status:-1
-    }],
-        title:"关于我"
-    },
+    }],    
+
+  },
     select: {
       id: true,
     },
@@ -39,6 +45,7 @@ export const getPost = (id: string, fields: string[] = []) => {
 };
 export const getAboutMe = async (fields: string[] = []) => {
     const postsId = await getAboutMeId();
+    console.log(postsId)
     const posts = await Promise.all(
       postsId.map(async (post) => await getPost(post.id, fields))
     );

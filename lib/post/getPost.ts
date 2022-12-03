@@ -60,7 +60,7 @@ export function getAllPost(fields: string[] = []) {
 export const getPostByTag = (tags:string[],title:string, fields: string[] = [])=>{
     return prisma.post.findMany({
       where:{
-        OR:[
+        AND:[
           {
             tags:{
               hasSome:tags
@@ -96,7 +96,7 @@ export const getPostByTag = (tags:string[],title:string, fields: string[] = [])=
 export const getSelection = async (fields: string[] = [])=>{
   const data = await prisma.post.findMany({
     where:{
-      OR:[
+      AND:[
         {
           selected:1
         }
