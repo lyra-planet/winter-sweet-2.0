@@ -1,5 +1,5 @@
 import { StarIcon, ArchiveBoxIcon, SwatchIcon, BookmarkIcon, CodeBracketIcon, ChatBubbleLeftEllipsisIcon, HeartIcon, TruckIcon } from "@heroicons/react/24/outline";
-import { ArrowRight, Email, Fun, Github, Netease, QQ, Telegram, Terminal } from "../../../assets";
+import { ArrowRight, Email, Fun, Github, Home, Netease, QQ, Telegram, Terminal } from "../../../assets";
 import NavItem from "./navItem";
 import AuthForm from '../../../components/Auth/Form'
 import FooterItem from "./footerItem";
@@ -36,6 +36,7 @@ const index = () => {
         </section>
       </section>
       <section>
+      <NavItem link="/"><Home className="h-5 mr-2"/>主页 Home</NavItem>  
       <NavItem link="/about"><StarIcon className="h-5 mr-2"/>关于我 AboutMe</NavItem>  
       <NavItem link="/posts"><ArchiveBoxIcon className="h-5 mr-2"/>归档 Archive</NavItem>
       <NavItem link="/tags">< BookmarkIcon className="h-5 mr-2"/>标签 Tag</NavItem>
