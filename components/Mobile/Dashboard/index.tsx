@@ -7,6 +7,8 @@ import { useState } from "react";
 import config from "../../../config";
 import { useStore } from "../../../store";
 import Link from "next/link";
+import FooterClickCopy from "./footerClickCopy"
+
 const index = () => {
   const [active,setActive] = useState(false)
   const store = useStore()
@@ -58,7 +60,7 @@ const index = () => {
         <section className="w-1/2">
         <h1 className="opacity-50 text-sm mb-1">•联系&关注•</h1>
         <ul>
-            <FooterItem link={config.links.email}><Email className="w-4 mr-1"/>E-mail</FooterItem>
+            <FooterClickCopy link={config.links.email}><Email className="w-4 mr-1"/>E-mail</FooterClickCopy>
             <FooterItem link={config.links.telegram}><Telegram className="w-4 mr-1"/>Telegram</FooterItem>
             <FooterItem link={config.links.qq}><QQ className="w-4 mr-1"/>QQ</FooterItem>
             <FooterItem link={config.links.github}><Github className="w-4 mr-1"/>GitHub</FooterItem>

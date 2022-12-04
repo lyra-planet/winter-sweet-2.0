@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import Item from './item'
 import { Email, Fun, Github,Netease,QQ, Telegram, Terminal } from '../../assets'
-import {distanceToNow, distanceToNowHour} from '../../lib/dateRelative'
+import { distanceToNowHour} from '../../lib/dateRelative'
 import config from '../../config'
-
+import ClickCopy from './clickCopy'
 const index = () => {
   const yiyan = useRef(null)
   const creater = useRef(null)
@@ -37,7 +37,7 @@ const index = () => {
           <section>
           <h1 className='font-bold text-sm'>联系&关注</h1>
             <ul>
-            <Item link={config.links.email}><Email className="w-4 mr-1"/>E-mail</Item>
+            <ClickCopy link={config.links.email}><Email className="w-4 mr-1"/>E-mail</ClickCopy>
             <Item link={config.links.telegram}><Telegram className="w-4 mr-1"/>Telegram</Item>
             <Item link={config.links.qq}><QQ className="w-4 mr-1"/>QQ</Item>
             <Item link={config.links.github}><Github className="w-4 mr-1"/>GitHub</Item>
