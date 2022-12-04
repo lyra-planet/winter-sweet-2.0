@@ -13,7 +13,7 @@ const index = () => {
         setActive(index)
     }
   return (
-    <div className="pt-8 pb-10 px-10 space-y-4 w-full flex flex-col h-full md:h-screen">
+    <div className="pt-8 pb-10 px-10 space-y-4 w-full flex flex-col h-full min-h-screen md:h-screen">
     <section className=" md:h-[10%]">
         <h1 className="flex items-center space-x-2 text-3xl font-bold font-serif">
         <p>Lyra.Planet</p>
