@@ -7,7 +7,6 @@ import SkeletonItem from './skeletonItem'
 
 const index = () => {
   const data = useRight()
-  console.log(data)
   return (
     <div className='p-4 space-y-5 sticky top-0 animate-silderighttoleft'>
 
@@ -15,7 +14,7 @@ const index = () => {
       <p className=' bg-black text-white inline-block text-xs p-1 border-b-2 border-red-500'>Lyra.Selection</p>
       <ul>
         {
-         data.posts?data.posts.map(item=><Item item={item}/>):<>
+         data.posts?data.posts.map(item=><Item key={item.id1} item={item}/>):<>
          <SkeletonItem/><SkeletonItem/><SkeletonItem/><SkeletonItem/>
          </>
         }

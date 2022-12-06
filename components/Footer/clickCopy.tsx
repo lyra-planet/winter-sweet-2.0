@@ -17,7 +17,7 @@ const clickCopy = ({link,children}:{link:string,children:any}) => {
     text-xs
     font-normal text-neutral-500
     hover:text-red-500 hover:border-b-red-500 transition duration-300'>
-    <textarea className='absolute opacity-0' ref={textareaRef}>{link}</textarea>
+    <textarea className='absolute opacity-0' readOnly ref={textareaRef} value={link}></textarea>
     {children}
     </li>
     </button>

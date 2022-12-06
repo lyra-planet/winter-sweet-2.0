@@ -2,7 +2,6 @@ import Link from "next/link"
 import { formatMonth } from "../../lib/dateRelative"
 
 const Ad = ({item}) => {
-    console.log(item)
     return (
         <Link href={item?.link}>
                 <section className="hover:scale-105 border-b last:border-b-0 pb-3 pt-4 group/item transition duration-300">

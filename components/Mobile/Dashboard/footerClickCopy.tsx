@@ -20,7 +20,7 @@ const FooterClickCopy = ({link,children}:{link:string,children:any}) => {
     hover:bg-white 
     hover:border-b-red-500
     transition duration-300'>
-    <textarea className='absolute opacity-0 top-0 left-0'  ref={textareaRef} value={link}></textarea>
+    <textarea className='absolute opacity-0 top-0 left-0' readOnly  ref={textareaRef} value={link}></textarea>
     {children}
     </li>
     </button>
