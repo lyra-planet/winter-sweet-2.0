@@ -28,7 +28,7 @@ const index = () => {
     if( data.status=== 'succeed' ){
       setModal({active:1,text:"上传成功",type:1})
       restModal()
-      router.push('/dashboard/manager')
+      router.push('/dashboard')
     }
   }
   const updateFilesCb=(files,status)=>{
