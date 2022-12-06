@@ -5,7 +5,6 @@ const clickCopy = ({link,children}:{link:string,children:any}) => {
     const textareaRef = useRef(null)
     const copyText = ()=> {
         var input = textareaRef.current;
-        input.value = link;
         input.select();//选中文本
         console.log(input)
         document.execCommand("copy");
@@ -18,7 +17,7 @@ const clickCopy = ({link,children}:{link:string,children:any}) => {
     text-xs
     font-normal text-neutral-500
     hover:text-red-500 hover:border-b-red-500 transition duration-300'>
-    <textarea className=' absolute opacity-0 w-0 h-0' ref={textareaRef}></textarea>
+    <textarea className='absolute opacity-0' ref={textareaRef}>{link}</textarea>
     {children}
     </li>
     </button>
