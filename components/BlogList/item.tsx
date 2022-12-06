@@ -77,14 +77,13 @@ const Item = ({ post }) => {
       >
         <ul className="flex items-center space-x-1 text-sm text-gray-400 font-serif">
           <li className=" whitespace-nowrap">{formatDate(post.createdAt)}</li>
-          <li className="inline md:group-[:not(:first-child)]/box:hidden lg:inline bg-red-500 w-1 h-1" />
           <li className=" bg-red-500 w-1 h-1" />
           <li className="flex flex-row">
             [<ul className="flex flex-row space-x-1">
             {
               post.tags.map(tag=>(
               <li key={tag}>
-            #
+            <span className=" text-red-500">#</span> 
             <span className="hover:text-red-500 transition duration-300 cursor-pointer">
               <Link href={"/"}>{tag}</Link>
             </span>
