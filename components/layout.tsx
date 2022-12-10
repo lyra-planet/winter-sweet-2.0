@@ -22,7 +22,7 @@ export default function Layout({ children }) {
        <LeftSideBar/>
          </section>
          <section ref={mainRef}  className='w-4/5 flex-grow overflow-auto scrollbar-none'>
-           <div className='flex w-full flex-row'>
+           <div className='flex w-full flex-row flex-grow'>
             {children}
            </div>
            <Footer/>

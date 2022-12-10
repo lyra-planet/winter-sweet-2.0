@@ -31,8 +31,8 @@ const index = ({ post,relativePosts }) => {
         <Toc/>
         </PostLeftSideBar>
       </section>
-      <section ref={mainRef} id="scroll-con" className="w-full md:w-4/5 flex flex-col overflow-auto scrollbar-none">
-        <div className="flex flex-col justify-center
+      <section ref={mainRef} id="scroll-con" className="w-full md:w-4/5 h-full flex flex-col overflow-auto scrollbar-none">
+        <div className="flex flex-col justify-center 
         xl:flex-row px-2 md:px-6 flex-grow xl:space-x-6">
           {/* article */}
           <section className="space-y-10 

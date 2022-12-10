@@ -6,7 +6,6 @@ const Toc = ()=>{
   const ref = useRef<any>(null)
   const {query:{postId} } = useRouter()
     useEffect(() => {
-      console.log(1)
       tocbot.init({
         tocSelector: '#post-toc',
         contentSelector: '#post-content',

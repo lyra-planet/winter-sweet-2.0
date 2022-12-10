@@ -6,7 +6,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 async function fetcher(url: string) {
 
   const query = new URLSearchParams({ url })
-  console.log(query.get("postId"))
   const queryUrl = url
   return fetch(queryUrl).then((res) => res.json())
 }

@@ -8,7 +8,7 @@ const Main = dynamic(() => import("../../components/Post/Id/Main"),{ssr:false});
 
 export default function PostPage({ post,relativePosts }) {
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col h-full bg-white relative">
       <Header />
       <div className="flex h-full">
         <ErrorBoundary>
@@ -33,8 +33,8 @@ export async function getServerSideProps(context) {
   .map(async ({title,excerpt,createdAt,id,authorId,tags,count})=>(
     {
       title,id,authorId,tags,count,
-      excerpt:await Promise.all(post.excerpt.map(item=>markdownToHtml(item || ''))),
-      createAt: JSON.stringify(post.createdAt),
+      excerpt:await Promise.all(excerpt.map(item=>markdownToHtml(item || ''))),
+      createAt: JSON.stringify(createdAt),
     }
   )))
   return {
